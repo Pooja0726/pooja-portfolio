@@ -520,7 +520,6 @@ function Contact() {
               </div>
               <div>
                 <div className="cl-label">GitHub</div>
-                <div className="cl-val">Pooja0726</div>
               </div>
             </a>
           </div>
