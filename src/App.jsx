@@ -108,20 +108,21 @@ function AskPoojaBot() {
     setMessages(prev => [...prev, { role: "user", text: userText }]);
     setLoading(true);
     try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
+      const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 300,
-          system: POOJA_CONTEXT,
-          messages: [{ role: "user", content: userText }],
+          messages: [
+            { role: "system", content: POOJA_CONTEXT },
+            { role: "user", content: userText }
+          ]
         }),
       });
       const data = await res.json();
-      const reply = data.content?.[0]?.text || "Sorry, I couldn't fetch a response. Please try again.";
+      const reply = data.choices?.[0]?.message?.content || "Sorry, I couldn't fetch a response.";
       setMessages(prev => [...prev, { role: "assistant", text: reply }]);
-    } catch {
+    } catch (err) {
+      console.error("Bot error:", err);
       setMessages(prev => [...prev, { role: "assistant", text: "Sorry, something went wrong. Please try again!" }]);
     }
     setLoading(false);
@@ -129,7 +130,6 @@ function AskPoojaBot() {
 
   return (
     <>
-      {/* Floating button */}
       <button className="ask-fab" onClick={() => setOpen(p => !p)} aria-label="Ask Pooja AI">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -137,7 +137,6 @@ function AskPoojaBot() {
         <span>Ask Pooja</span>
       </button>
 
-      {/* Chat window */}
       {open && (
         <div className="ask-window">
           <div className="ask-header">
@@ -149,7 +148,10 @@ function AskPoojaBot() {
               </div>
             </div>
             <button className="ask-close" onClick={() => setOpen(false)}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
             </button>
           </div>
 
@@ -186,7 +188,10 @@ function AskPoojaBot() {
               onKeyDown={e => e.key === "Enter" && sendMessage()}
             />
             <button className="ask-send" onClick={() => sendMessage()} disabled={loading}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
             </button>
           </div>
         </div>
@@ -198,18 +203,23 @@ function AskPoojaBot() {
 /* ─── NAV ─── */
 function Nav({ page, setPage }) {
   const [open, setOpen] = useState(false);
-  const links = ["Home","About","Skills","Experience","Projects","Contact"];
+  const links = ["Home", "About", "Skills", "Experience", "Projects", "Contact"];
   return (
     <nav className="nav">
       <span className="nav-logo" onClick={() => setPage("Home")}>PS.</span>
       <ul className="nav-links">
         {links.map(l => (
           <li key={l}>
-            <span className={`nav-link${page===l?" active":""}`} onClick={() => { setPage(l); setOpen(false); }}>{l}</span>
+            <span
+              className={`nav-link${page === l ? " active" : ""}`}
+              onClick={() => { setPage(l); setOpen(false); }}
+            >
+              {l}
+            </span>
           </li>
         ))}
       </ul>
-      <button className="hamburger" onClick={() => setOpen(p=>!p)} aria-label="menu">
+      <button className="hamburger" onClick={() => setOpen(p => !p)} aria-label="menu">
         <span/><span/><span/>
       </button>
       {open && (
@@ -230,7 +240,10 @@ function Home({ setPage }) {
       <div className="home-left">
         <div className="home-badge"><span className="dot"/>Open to Opportunities</div>
         <h1 className="home-title">Hi, I'm<br/><span className="grad">Pooja Sahu</span></h1>
-        <p className="home-sub">AI/ML Student and Developer specialising in deep learning, computer vision, and full-stack development. Published researcher building end-to-end intelligent systems.</p>
+        <p className="home-sub">
+          AI/ML Student and Developer specialising in deep learning, computer vision,
+          and full-stack development. Published researcher building end-to-end intelligent systems.
+        </p>
         <div className="home-actions">
           <button className="btn-primary" onClick={() => setPage("Projects")}>View Projects</button>
           <button className="btn-outline" onClick={() => setPage("Contact")}>Get in Touch</button>
@@ -247,7 +260,12 @@ function Home({ setPage }) {
           <div className="photo-ring"/>
         </div>
         <div className="stats-grid">
-          {[{num:"8.87",label:"CGPA / 10"},{num:"100+",label:"LeetCode Solved"},{num:"3+",label:"Projects Built"},{num:"1",label:"Publication"}].map(s=>(
+          {[
+            { num: "8.87", label: "CGPA / 10" },
+            { num: "100+", label: "LeetCode Solved" },
+            { num: "3+",   label: "Projects Built" },
+            { num: "1",    label: "Publication" }
+          ].map(s => (
             <div className="stat-card" key={s.label}>
               <span className="stat-num">{s.num}</span>
               <span className="stat-label">{s.label}</span>
@@ -280,7 +298,15 @@ function About({ setPage }) {
             <div className="info-row"><span className="info-key">Batch</span><span>2023 – 2027</span></div>
             <div className="info-row"><span className="info-key">CGPA</span><span className="info-highlight">8.87 / 10</span></div>
             <div className="info-row"><span className="info-key">Email</span><span>sahupooja43890@gmail.com</span></div>
-            <a href="https://www.linkedin.com/in/pooja-sahu-54b5a7281/" target="_blank" rel="noreferrer" className="btn-primary" style={{marginTop:"1.2rem",display:"flex",justifyContent:"center",textDecoration:"none"}}>Connect on LinkedIn</a>
+            <a
+              href="https://www.linkedin.com/in/pooja-sahu-54b5a7281/"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary"
+              style={{ marginTop: "1.2rem", display: "flex", justifyContent: "center", textDecoration: "none" }}
+            >
+              Connect on LinkedIn
+            </a>
           </div>
         </div>
         <div className="about-text-col">
@@ -288,13 +314,13 @@ function About({ setPage }) {
           <p>With <strong>1+ year of Python development</strong> experience, I have built hybrid ML models published at international conferences and full-stack research platforms deployed on Vercel and HuggingFace Spaces.</p>
           <p>I regularly solve algorithmic problems on <strong>LeetCode (100+ solved)</strong> and stay up to date with Generative AI, RAG architectures, and large language models.</p>
           <div className="chips-wrap">
-            {["Deep Learning","Computer Vision","Full-Stack Dev","Published Researcher","Generative AI","Mobile Dev","Cloud (GCP)","Agile"].map(c=>(
+            {["Deep Learning", "Computer Vision", "Full-Stack Dev", "Published Researcher", "Generative AI", "Mobile Dev", "Cloud (GCP)", "Agile"].map(c => (
               <span className="chip" key={c}>{c}</span>
             ))}
           </div>
           <div className="about-actions">
-            <button className="btn-primary" onClick={()=>setPage("Skills")}>View My Skills</button>
-            <button className="btn-outline" onClick={()=>setPage("Projects")}>See Projects</button>
+            <button className="btn-primary" onClick={() => setPage("Skills")}>View My Skills</button>
+            <button className="btn-outline" onClick={() => setPage("Projects")}>See Projects</button>
           </div>
         </div>
       </div>
@@ -334,6 +360,7 @@ function Experience() {
         <h2 className="page-title">Work Experience</h2>
         <p className="page-sub">Hands-on industry experience building AI-powered products.</p>
       </div>
+
       <div className="timeline">
         <div className="timeline-item">
           <div className="timeline-dot"/>
@@ -352,13 +379,17 @@ function Experience() {
           </div>
         </div>
       </div>
-      <div className="page-header" style={{marginTop:"4rem"}}>
+
+      <div className="page-header" style={{ marginTop: "4rem" }}>
         <div className="section-tag">Education</div>
         <h2 className="page-title">Academic Background</h2>
       </div>
       <div className="edu-card">
         <div className="edu-icon-box">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/>
+          </svg>
         </div>
         <div>
           <div className="edu-degree">Bachelor of Technology — Computer Science (AI-ML)</div>
@@ -370,7 +401,8 @@ function Experience() {
           </div>
         </div>
       </div>
-      <div className="page-header" style={{marginTop:"4rem"}}>
+
+      <div className="page-header" style={{ marginTop: "4rem" }}>
         <div className="section-tag">Certifications & Publications</div>
         <h2 className="page-title">Recognition & Learning</h2>
       </div>
@@ -398,7 +430,7 @@ function Projects() {
       </div>
       <div className="projects-grid">
         {PROJECTS.map(p => (
-          <div className="project-card" key={p.title} style={{"--pcolor": p.color}}>
+          <div className="project-card" key={p.title} style={{ "--pcolor": p.color }}>
             <div className="project-header">
               <div>
                 <div className="project-subtitle">{p.subtitle}</div>
@@ -413,13 +445,20 @@ function Projects() {
             <div className="project-links">
               {p.liveUrl && (
                 <a href={p.liveUrl} target="_blank" rel="noreferrer" className="project-link-btn project-link-live">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
                   Live Demo
                 </a>
               )}
               {p.githubUrl && (
                 <a href={p.githubUrl} target="_blank" rel="noreferrer" className="project-link-btn project-link-github">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                    <path d="M9 18c-4.51 2-5-2-7-2"/>
+                  </svg>
                   GitHub
                 </a>
               )}
@@ -450,21 +489,40 @@ function Contact() {
           <div className="contact-links">
             <a href="mailto:sahupooja43890@gmail.com" className="contact-link">
               <div className="contact-link-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
               </div>
-              <div><div className="cl-label">Email</div><div className="cl-val">sahupooja43890@gmail.com</div></div>
+              <div>
+                <div className="cl-label">Email</div>
+                <div className="cl-val">sahupooja43890@gmail.com</div>
+              </div>
             </a>
             <a href="https://www.linkedin.com/in/pooja-sahu-54b5a7281/" target="_blank" rel="noreferrer" className="contact-link">
               <div className="contact-link-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
               </div>
-              <div><div className="cl-label">LinkedIn</div><div className="cl-val">pooja-sahu-54b5a7281</div></div>
+              <div>
+                <div className="cl-label">LinkedIn</div>
+                <div className="cl-val">pooja-sahu-54b5a7281</div>
+              </div>
             </a>
             <a href="https://github.com/Pooja0726" target="_blank" rel="noreferrer" className="contact-link">
               <div className="contact-link-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                  <path d="M9 18c-4.51 2-5-2-7-2"/>
+                </svg>
               </div>
-              <div><div className="cl-label">GitHub</div><div className="cl-val">Pooja0726</div></div>
+              <div>
+                <div className="cl-label">GitHub</div>
+                <div className="cl-val">Pooja0726</div>
+              </div>
             </a>
           </div>
         </div>
@@ -475,7 +533,7 @@ function Contact() {
           <a
             href="mailto:sahupooja43890@gmail.com?subject=Opportunity%20for%20Pooja%20Sahu&body=Hi%20Pooja%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect."
             className="btn-primary"
-            style={{marginTop:"2rem",display:"inline-flex",textDecoration:"none"}}
+            style={{ marginTop: "2rem", display: "inline-flex", textDecoration: "none" }}
           >
             Send a Message
           </a>
