@@ -509,7 +509,6 @@ function Contact() {
               </div>
               <div>
                 <div className="cl-label">LinkedIn</div>
-                <div className="cl-val">pooja-sahu-54b5a7281</div>
               </div>
             </a>
             <a href="https://github.com/Pooja0726" target="_blank" rel="noreferrer" className="contact-link">
