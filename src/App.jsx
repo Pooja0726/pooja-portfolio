@@ -529,7 +529,9 @@ function Contact() {
           <h3 className="cta-title">Let's build something great together</h3>
           <p className="cta-sub">I'm currently looking for internship and research opportunities in AI/ML. Reach out and let's discuss how I can contribute to your team.</p>
           <a
-            href="mailto:sahupooja43890@gmail.com?subject=Opportunity%20for%20Pooja%20Sahu&body=Hi%20Pooja%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect."
+            href="https://www.linkedin.com/in/pooja-sahu-54b5a7281/"
+            target="_blank"
+            rel="noreferrer"
             className="btn-primary"
             style={{ marginTop: "2rem", display: "inline-flex", textDecoration: "none" }}
           >
