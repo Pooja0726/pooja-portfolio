@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./App.css";
 
 const SKILLS = [
@@ -18,6 +18,8 @@ const PROJECTS = [
     tags: ["React", "FastAPI", "ChromaDB", "RAG", "LLaMA 3.3 70B", "SQLite", "Vercel"],
     badge: null,
     color: "#4f8ef7",
+    liveUrl: "https://researchmind-five.vercel.app",
+    githubUrl: null,
   },
   {
     title: "Facial Expression Recognition",
@@ -26,6 +28,8 @@ const PROJECTS = [
     tags: ["VGG16", "SVM", "TensorFlow", "Keras", "Streamlit", "OpenCV"],
     badge: "Published",
     color: "#a78bfa",
+    liveUrl: null,
+    githubUrl: null,
   },
   {
     title: "Chemical Equipment Visualiser",
@@ -34,6 +38,8 @@ const PROJECTS = [
     tags: ["Django REST", "React", "PyQt5", "Railway", "PyInstaller"],
     badge: null,
     color: "#38bdf8",
+    liveUrl: null,
+    githubUrl: "https://github.com/Pooja0726/chemical-equipment-visualizer.git",
   },
 ];
 
@@ -43,6 +49,151 @@ const CERTS = [
   { name: "Generative AI Certification", issuer: "Smartbridge GenAI · 2025", type: "Certification" },
   { name: "Machine Learning & Deep Learning", issuer: "Certified Course · 2025", type: "Certification" },
 ];
+
+const POOJA_CONTEXT = `
+You are Pooja's AI portfolio assistant. Answer questions about Pooja Sahu concisely and professionally.
+
+About Pooja Sahu:
+- B.Tech Computer Science (AI-ML) student at VIT Bhopal, CGPA 8.87/10, batch 2023-2027
+- Location: Bhopal, MP, India
+- Email: sahupooja43890@gmail.com
+- LinkedIn: https://www.linkedin.com/in/pooja-sahu-54b5a7281/
+- GitHub: https://github.com/Pooja0726
+
+Experience:
+- AI/ML Intern at Amasqis.ai (Mar 2025 - Sep 2025, Remote)
+  - Built 15+ dashboard components for financial AI platform serving 500+ customers
+  - Improved decision-making efficiency by 30%
+  - Agile sprints, cross-functional team collaboration
+
+Projects:
+1. ResearchMind - Full-stack AI research platform, RAG with LLaMA 3.3 70B, ChromaDB vector search, live at researchmind-five.vercel.app
+2. Facial Expression Recognition - VGG16+SVM, 84.40% accuracy, published at WCSC 2025
+3. Chemical Equipment Visualiser - Django REST + React + PyQt5, PDF reports, Windows executable
+
+Skills: Python, Java, C++, SQL, JavaScript, TensorFlow, Keras, Django, Flutter, Streamlit, Pandas, NumPy, Scikit-learn, Google Gemini API, Deep Learning, Machine Learning, Generative AI, RAG, Ollama, Computer Vision, GCP, Vercel
+
+Certifications: Google Generative AI (Basic/Intermediate/Advanced), Smartbridge GenAI, ML & Deep Learning courses
+Publication: WCSC 2025 - Facial Expression Recognition using CNN and SVM
+
+Availability: Open to internships and research collaborations in AI/ML.
+Solved 100+ LeetCode problems.
+`;
+
+/* ─── ASK POOJA BOT ─── */
+function AskPoojaBot() {
+  const [open, setOpen] = useState(false);
+  const [messages, setMessages] = useState([
+    { role: "assistant", text: "Hi! I'm Pooja's AI assistant. Ask me anything about her skills, projects, experience, or availability!" }
+  ]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const bottomRef = useRef(null);
+
+  const suggestions = [
+    "Is Pooja available for internships?",
+    "What projects has she built?",
+    "What are her ML skills?",
+    "Tell me about her research publication",
+  ];
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, open]);
+
+  async function sendMessage(text) {
+    const userText = text || input.trim();
+    if (!userText) return;
+    setInput("");
+    setMessages(prev => [...prev, { role: "user", text: userText }]);
+    setLoading(true);
+    try {
+      const res = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 300,
+          system: POOJA_CONTEXT,
+          messages: [{ role: "user", content: userText }],
+        }),
+      });
+      const data = await res.json();
+      const reply = data.content?.[0]?.text || "Sorry, I couldn't fetch a response. Please try again.";
+      setMessages(prev => [...prev, { role: "assistant", text: reply }]);
+    } catch {
+      setMessages(prev => [...prev, { role: "assistant", text: "Sorry, something went wrong. Please try again!" }]);
+    }
+    setLoading(false);
+  }
+
+  return (
+    <>
+      {/* Floating button */}
+      <button className="ask-fab" onClick={() => setOpen(p => !p)} aria-label="Ask Pooja AI">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span>Ask Pooja</span>
+      </button>
+
+      {/* Chat window */}
+      {open && (
+        <div className="ask-window">
+          <div className="ask-header">
+            <div className="ask-header-info">
+              <div className="ask-avatar">P</div>
+              <div>
+                <div className="ask-title">Ask Pooja</div>
+                <div className="ask-subtitle">AI portfolio assistant</div>
+              </div>
+            </div>
+            <button className="ask-close" onClick={() => setOpen(false)}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+
+          <div className="ask-messages">
+            {messages.map((m, i) => (
+              <div key={i} className={`ask-msg ${m.role}`}>
+                {m.role === "assistant" && <div className="ask-msg-avatar">P</div>}
+                <div className="ask-msg-bubble">{m.text}</div>
+              </div>
+            ))}
+            {loading && (
+              <div className="ask-msg assistant">
+                <div className="ask-msg-avatar">P</div>
+                <div className="ask-msg-bubble ask-typing"><span/><span/><span/></div>
+              </div>
+            )}
+            <div ref={bottomRef}/>
+          </div>
+
+          {messages.length === 1 && (
+            <div className="ask-suggestions">
+              {suggestions.map(s => (
+                <button key={s} className="ask-suggestion" onClick={() => sendMessage(s)}>{s}</button>
+              ))}
+            </div>
+          )}
+
+          <div className="ask-input-row">
+            <input
+              className="ask-input"
+              placeholder="Ask me anything..."
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              onKeyDown={e => e.key === "Enter" && sendMessage()}
+            />
+            <button className="ask-send" onClick={() => sendMessage()} disabled={loading}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
 
 /* ─── NAV ─── */
 function Nav({ page, setPage }) {
@@ -58,7 +209,6 @@ function Nav({ page, setPage }) {
           </li>
         ))}
       </ul>
-      <a href="mailto:sahupooja43890@gmail.com" className="nav-cta">Hire Me</a>
       <button className="hamburger" onClick={() => setOpen(p=>!p)} aria-label="menu">
         <span/><span/><span/>
       </button>
@@ -184,7 +334,6 @@ function Experience() {
         <h2 className="page-title">Work Experience</h2>
         <p className="page-sub">Hands-on industry experience building AI-powered products.</p>
       </div>
-
       <div className="timeline">
         <div className="timeline-item">
           <div className="timeline-dot"/>
@@ -192,7 +341,7 @@ function Experience() {
             <div className="tl-header">
               <div>
                 <div className="tl-role">AI / ML Intern</div>
-                <div className="tl-company">Amasqis.ai &nbsp;·&nbsp; Remote</div>
+                <div className="tl-company">Amasqis.ai · Remote</div>
               </div>
               <div className="tl-date">Mar 2025 – Sep 2025</div>
             </div>
@@ -203,7 +352,6 @@ function Experience() {
           </div>
         </div>
       </div>
-
       <div className="page-header" style={{marginTop:"4rem"}}>
         <div className="section-tag">Education</div>
         <h2 className="page-title">Academic Background</h2>
@@ -222,7 +370,6 @@ function Experience() {
           </div>
         </div>
       </div>
-
       <div className="page-header" style={{marginTop:"4rem"}}>
         <div className="section-tag">Certifications & Publications</div>
         <h2 className="page-title">Recognition & Learning</h2>
@@ -263,6 +410,23 @@ function Projects() {
             <div className="project-tags">
               {p.tags.map(t => <span className="tag" key={t}>{t}</span>)}
             </div>
+            <div className="project-links">
+              {p.liveUrl && (
+                <a href={p.liveUrl} target="_blank" rel="noreferrer" className="project-link-btn project-link-live">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Live Demo
+                </a>
+              )}
+              {p.githubUrl && (
+                <a href={p.githubUrl} target="_blank" rel="noreferrer" className="project-link-btn project-link-github">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                  GitHub
+                </a>
+              )}
+              {!p.liveUrl && !p.githubUrl && (
+                <span className="project-link-soon">Coming Soon</span>
+              )}
+            </div>
           </div>
         ))}
       </div>
@@ -290,12 +454,6 @@ function Contact() {
               </div>
               <div><div className="cl-label">Email</div><div className="cl-val">sahupooja43890@gmail.com</div></div>
             </a>
-            <a href="tel:+919302445014" className="contact-link">
-              <div className="contact-link-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <div><div className="cl-label">Phone</div><div className="cl-val">+91 9302445014</div></div>
-            </a>
             <a href="https://www.linkedin.com/in/pooja-sahu-54b5a7281/" target="_blank" rel="noreferrer" className="contact-link">
               <div className="contact-link-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -314,7 +472,11 @@ function Contact() {
           <div className="cta-label">Ready to collaborate?</div>
           <h3 className="cta-title">Let's build something great together</h3>
           <p className="cta-sub">I'm currently looking for internship and research opportunities in AI/ML. Reach out and let's discuss how I can contribute to your team.</p>
-          <a href="mailto:sahupooja43890@gmail.com?subject=Opportunity%20for%20Pooja%20Sahu&body=Hi%20Pooja%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.%0A%0A" className="btn-primary" style={{marginTop:"2rem",display:"inline-flex",textDecoration:"none"}}>
+          <a
+            href="mailto:sahupooja43890@gmail.com?subject=Opportunity%20for%20Pooja%20Sahu&body=Hi%20Pooja%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect."
+            className="btn-primary"
+            style={{marginTop:"2rem",display:"inline-flex",textDecoration:"none"}}
+          >
             Send a Message
           </a>
         </div>
@@ -337,8 +499,9 @@ export default function App() {
         <PageComponent setPage={setPage}/>
       </div>
       <footer className="footer">
-        <p>Designed & Built by <span>Pooja Sahu</span> &nbsp;·&nbsp; 2025</p>
+        <p>Designed & Built by <span>Pooja Sahu</span> · 2025</p>
       </footer>
+      <AskPoojaBot/>
     </>
   );
 }
