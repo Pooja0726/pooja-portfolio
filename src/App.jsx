@@ -395,9 +395,8 @@ function Experience() {
               <div className="tl-date">Apr 2025 – Sep 2025</div>
             </div>
             <ul className="tl-list">
-              <li>Designed and developed user-friendly interfaces for a financial AI platform using Figma, serving <strong>500+ customers</strong>.</li>
+              <li>Designed and developed user-friendly interfaces for a financial AI platform using Figma.</li>
               <li>Created <strong>15+ dashboard components</strong> presenting customer insights and performance metrics, enhancing overall UI/UX experience.</li>
-              <li>Collaborated in Agile sprints with cross-functional teams to implement AI-driven features and integrate user feedback.</li>
             </ul>
             <a
               href="/amasqis-cert.pdf"
