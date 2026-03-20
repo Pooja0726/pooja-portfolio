@@ -44,10 +44,30 @@ const PROJECTS = [
 ];
 
 const CERTS = [
-  { name: "Facial Expression Recognition using CNN and SVM", issuer: "World Conference on Smart Computing (WCSC 2025)", type: "Publication" },
-  { name: "Google Generative AI — Basic, Intermediate & Advanced", issuer: "Google", type: "Certification" },
-  { name: "Generative AI Certification", issuer: "Smartbridge GenAI · 2025", type: "Certification" },
-  { name: "Machine Learning & Deep Learning", issuer: "Certified Course · 2025", type: "Certification" },
+  {
+    name: "Facial Expression Recognition using CNN and SVM",
+    issuer: "2nd World Congress on Smart Computing (WCSC 2025) · Springer",
+    type: "Publication",
+    certUrl: "/wcsc-cert.pdf"
+  },
+  {
+    name: "Google Generative AI — Basic, Intermediate & Advanced",
+    issuer: "Google",
+    type: "Certification",
+    certUrl: "https://www.credly.com/users/pooja-sahu.22e83bbf"
+  },
+  {
+    name: "Google Cloud Generative AI",
+    issuer: "Smartbridge · July 2025",
+    type: "Certification",
+    certUrl: "/smartbridge-cert.pdf"
+  },
+  {
+    name: "21 Projects, 21 Days: ML, Deep Learning & GenAI",
+    issuer: "GeeksforGeeks",
+    type: "Certification",
+    certUrl: "/gfg-cert.pdf"
+  },
 ];
 
 const POOJA_CONTEXT = `
@@ -61,20 +81,23 @@ About Pooja Sahu:
 - GitHub: https://github.com/Pooja0726
 
 Experience:
-- AI/ML Intern at Amasqis.ai (Mar 2025 - Sep 2025, Remote)
-  - Built 15+ dashboard components for financial AI platform serving 500+ customers
-  - Improved decision-making efficiency by 30%
-  - Agile sprints, cross-functional team collaboration
+- AI/ML Intern at Amasqis.ai (April 2025 - September 2025, Remote)
+  - Designed and developed user-friendly interfaces for a financial AI platform using Figma
+  - Created 15+ dashboard components presenting customer insights and performance metrics
+  - Enhanced overall UI/UX experience for 500+ customers
 
 Projects:
 1. ResearchMind - Full-stack AI research platform, RAG with LLaMA 3.3 70B, ChromaDB vector search, live at researchmind-five.vercel.app
-2. Facial Expression Recognition - VGG16+SVM, 84.40% accuracy, published at WCSC 2025
+2. Facial Expression Recognition - VGG16+SVM, 84.40% accuracy, published at WCSC 2025 (Springer)
 3. Chemical Equipment Visualiser - Django REST + React + PyQt5, PDF reports, Windows executable
 
 Skills: Python, Java, C++, SQL, JavaScript, TensorFlow, Keras, Django, Flutter, Streamlit, Pandas, NumPy, Scikit-learn, Google Gemini API, Deep Learning, Machine Learning, Generative AI, RAG, Ollama, Computer Vision, GCP, Vercel
 
-Certifications: Google Generative AI (Basic/Intermediate/Advanced), Smartbridge GenAI, ML & Deep Learning courses
-Publication: WCSC 2025 - Facial Expression Recognition using CNN and SVM
+Certifications:
+- Google Generative AI (Basic/Intermediate/Advanced) - Credly verified
+- Google Cloud Generative AI - Smartbridge, July 2025
+- 21 Projects ML, Deep Learning & GenAI - GeeksforGeeks
+Publication: WCSC 2025 - Facial Expression Recognition using CNN and SVM (Springer)
 
 Availability: Open to internships and research collaborations in AI/ML.
 Solved 100+ LeetCode problems.
@@ -370,12 +393,26 @@ function Experience() {
                 <div className="tl-role">AI / ML Intern</div>
                 <div className="tl-company">Amasqis.ai · Remote</div>
               </div>
-              <div className="tl-date">Mar 2025 – Sep 2025</div>
+              <div className="tl-date">Apr 2025 – Sep 2025</div>
             </div>
             <ul className="tl-list">
-              <li>Designed user interfaces for a financial AI platform serving <strong>500+ customers</strong>, building 15+ dashboard components that improved decision-making efficiency by <strong>30%</strong>.</li>
-              <li>Collaborated in Agile sprints with cross-functional teams to implement AI-driven features and integrate user feedback for enhanced UI/UX.</li>
+              <li>Designed and developed user-friendly interfaces for a financial AI platform using Figma, serving <strong>500+ customers</strong>.</li>
+              <li>Created <strong>15+ dashboard components</strong> presenting customer insights and performance metrics, enhancing overall UI/UX experience.</li>
+              <li>Collaborated in Agile sprints with cross-functional teams to implement AI-driven features and integrate user feedback.</li>
             </ul>
+            <a
+              href="/amasqis-cert.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="cert-view-btn"
+              style={{ marginTop: "1.2rem", display: "inline-flex" }}
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+              View Certificate
+            </a>
           </div>
         </div>
       </div>
@@ -412,6 +449,20 @@ function Experience() {
             <div className="cert-type-badge">{c.type}</div>
             <div className="cert-name">{c.name}</div>
             <div className="cert-issuer">{c.issuer}</div>
+            {c.certUrl && (
+              <a
+                href={c.certUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="cert-view-btn"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                View Certificate
+              </a>
+            )}
           </div>
         ))}
       </div>
