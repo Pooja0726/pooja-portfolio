@@ -84,7 +84,6 @@ Experience:
 - AI/ML Intern at Amasqis.ai (April 2025 - September 2025, Remote)
   - Designed and developed user-friendly interfaces for a financial AI platform using Figma
   - Created 15+ dashboard components presenting customer insights and performance metrics
-  - Enhanced overall UI/UX experience for 500+ customers
 
 Projects:
 1. ResearchMind - Full-stack AI research platform, RAG with LLaMA 3.3 70B, ChromaDB vector search, live at researchmind-five.vercel.app
