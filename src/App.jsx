@@ -64,10 +64,16 @@ const CERTS = [
     certUrl: "/smartbridge-cert.pdf"
   },
   {
-    name: "Data Analytics Certificate",
+    name: "AIML certification",
     issuer: "GeeksforGeeks",
     type: "Certification",
     certUrl: "/gfg-cert.pdf"
+  },
+  {
+    name: "Data Analytics Certificate",
+    issuer: "Institute of Applied Technology",
+    type: "Certification",
+    certUrl: "/data-analytics-cert.pdf"
   },
 ];
 
