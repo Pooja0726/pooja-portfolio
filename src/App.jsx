@@ -290,7 +290,7 @@ function Home({ setPage }) {
         </div>
         <div className="stats-grid">
           {[
-            { num: "8.87", label: "CGPA / 10" },
+            { num: "8.93", label: "CGPA / 10" },
             { num: "100+", label: "LeetCode Solved" },
             { num: "3+",   label: "Projects Built" },
             { num: "1",    label: "Publication" }
@@ -325,7 +325,7 @@ function About({ setPage }) {
             <div className="info-row"><span className="info-key">Degree</span><span>B.Tech CS (AI-ML)</span></div>
             <div className="info-row"><span className="info-key">University</span><span>VIT Bhopal</span></div>
             <div className="info-row"><span className="info-key">Batch</span><span>2023 – 2027</span></div>
-            <div className="info-row"><span className="info-key">CGPA</span><span className="info-highlight">8.87 / 10</span></div>
+            <div className="info-row"><span className="info-key">CGPA</span><span className="info-highlight">8.93 / 10</span></div>
             <div className="info-row"><span className="info-key">Email</span><span>sahupooja43890@gmail.com</span></div>
             <a
               href="https://www.linkedin.com/in/pooja-sahu-54b5a7281/"
@@ -339,7 +339,7 @@ function About({ setPage }) {
           </div>
         </div>
         <div className="about-text-col">
-          <p>I am a <strong>B.Tech Computer Science (AI-ML)</strong> student at Vellore Institute of Technology, Bhopal, maintaining a CGPA of <strong>8.87 / 10</strong>. I combine deep research curiosity with practical engineering to deliver end-to-end AI solutions.</p>
+          <p>I am a <strong>B.Tech Computer Science (AI-ML)</strong> student at Vellore Institute of Technology, Bhopal, maintaining a CGPA of <strong>8.93 / 10</strong>. I combine deep research curiosity with practical engineering to deliver end-to-end AI solutions.</p>
           <p>With <strong>1+ year of Python development</strong> experience, I have built hybrid ML models published at international conferences and full-stack research platforms deployed on Vercel and HuggingFace Spaces.</p>
           <p>I regularly solve algorithmic problems on <strong>LeetCode (100+ solved)</strong> and stay up to date with Generative AI, RAG architectures, and large language models.</p>
           <div className="chips-wrap">
@@ -438,7 +438,7 @@ function Experience() {
           <div className="edu-school">Vellore Institute of Technology, Bhopal</div>
           <div className="edu-meta">
             <span>Sep 2023 – Aug 2027</span>
-            <span className="edu-cgpa">CGPA: 8.87 / 10</span>
+            <span className="edu-cgpa">CGPA: 8.93 / 10</span>
             <span>Bhopal, MP</span>
           </div>
         </div>
