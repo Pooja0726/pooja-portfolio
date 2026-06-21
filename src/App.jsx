@@ -81,7 +81,7 @@ const POOJA_CONTEXT = `
 You are Pooja's AI portfolio assistant. Answer questions about Pooja Sahu concisely and professionally.
 
 About Pooja Sahu:
-- B.Tech Computer Science (AI-ML) student at VIT Bhopal, CGPA 8.87/10, batch 2023-2027
+- B.Tech Computer Science (AI-ML) student at VIT Bhopal, CGPA 8.93/10, batch 2023-2027
 - Location: Bhopal, MP, India
 - Email: sahupooja43890@gmail.com
 - LinkedIn: https://www.linkedin.com/in/pooja-sahu-54b5a7281/
