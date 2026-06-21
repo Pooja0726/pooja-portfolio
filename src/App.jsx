@@ -22,24 +22,24 @@ const PROJECTS = [
     githubUrl: null,
   },
   {
-    title: "Facial Expression Recognition",
-    subtitle: "Published Research — WCSC 2025",
-    desc: "Hybrid emotion recognition model using VGG16 + SVM achieving 84.40% accuracy and 0.85 F1 score on 35K+ images (CK+, FER-2013 datasets). Streamlit demo with real-time webcam integration.",
-    tags: ["VGG16", "SVM", "TensorFlow", "Keras", "Streamlit", "OpenCV"],
-    badge: "Published",
+    title: "Smart Enterprise System",
+    subtitle: "AI-Powered Enterprise Platform",
+    desc: "Full-stack enterprise management platform with AI-driven insights for streamlining business operations, data handling, and decision-making workflows. Publicly deployed and accessible on HuggingFace Spaces.",
+    tags: ["Python", "AI/ML", "HuggingFace Spaces", "Full-Stack"],
+    badge: null,
     color: "#a78bfa",
-    liveUrl: null,
+    liveUrl: "https://pooja26-enterprisesystem.hf.space/",
     githubUrl: null,
   },
   {
-    title: "Chemical Equipment Visualiser",
-    subtitle: "Industrial Data Platform",
-    desc: "Hybrid industrial data visualisation app using Django REST, React, and PyQt5. Real-time charts, automated PDF reports, and packaged as a standalone Windows executable via PyInstaller for offline use.",
-    tags: ["Django REST", "React", "PyQt5", "Railway", "PyInstaller"],
+    title: "Smart Parking System",
+    subtitle: "AI-Based Parking Management",
+    desc: "Intelligent parking management system using AI to optimise space detection and allocation, deployed for real-world demonstration.",
+    tags: ["AI/ML", "Computer Vision", "Vercel"],
     badge: null,
     color: "#38bdf8",
-    liveUrl: null,
-    githubUrl: "https://github.com/Pooja0726/chemical-equipment-visualizer.git",
+    liveUrl: "https://kumbh-park-ai.vercel.app/",
+    githubUrl: null,
   },
 ];
 
@@ -48,7 +48,8 @@ const CERTS = [
     name: "Facial Expression Recognition using CNN and SVM",
     issuer: "2nd World Congress on Smart Computing (WCSC 2025) · Springer",
     type: "Publication",
-    certUrl: "/wcsc-cert.pdf"
+    certUrl: "/wcsc-cert.pdf",
+    publishedUrl: "https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12"
   },
   {
     name: "Google Generative AI — Basic, Intermediate & Advanced",
@@ -63,7 +64,7 @@ const CERTS = [
     certUrl: "/smartbridge-cert.pdf"
   },
   {
-    name: "21 Projects, 21 Days: ML, Deep Learning & GenAI",
+    name: "Data Analytics Certificate",
     issuer: "GeeksforGeeks",
     type: "Certification",
     certUrl: "/gfg-cert.pdf"
@@ -87,16 +88,16 @@ Experience:
 
 Projects:
 1. ResearchMind - Full-stack AI research platform, RAG with LLaMA 3.3 70B, ChromaDB vector search, live at researchmind-five.vercel.app
-2. Facial Expression Recognition - VGG16+SVM, 84.40% accuracy, published at WCSC 2025 (Springer)
-3. Chemical Equipment Visualiser - Django REST + React + PyQt5, PDF reports, Windows executable
+2. Smart Enterprise System - AI-powered enterprise management platform, live at pooja26-enterprisesystem.hf.space
+3. Smart Parking System - AI-based smart parking management system, deployed at kumbh-park-ai.vercel.app
 
 Skills: Python, Java, C++, SQL, JavaScript, TensorFlow, Keras, Django, Flutter, Streamlit, Pandas, NumPy, Scikit-learn, Google Gemini API, Deep Learning, Machine Learning, Generative AI, RAG, Ollama, Computer Vision, GCP, Vercel
 
 Certifications:
 - Google Generative AI (Basic/Intermediate/Advanced) - Credly verified
 - Google Cloud Generative AI - Smartbridge, July 2025
-- 21 Projects ML, Deep Learning & GenAI - GeeksforGeeks
-Publication: WCSC 2025 - Facial Expression Recognition using CNN and SVM (Springer)
+- Data Analytics Certificate - GeeksforGeeks
+Publication: WCSC 2025 - Facial Expression Recognition using CNN and SVM, published in Springer (https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12)
 
 Availability: Open to internships and research collaborations in AI/ML.
 Solved 100+ LeetCode problems.
@@ -447,20 +448,37 @@ function Experience() {
             <div className="cert-type-badge">{c.type}</div>
             <div className="cert-name">{c.name}</div>
             <div className="cert-issuer">{c.issuer}</div>
-            {c.certUrl && (
-              <a
-                href={c.certUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="cert-view-btn"
-              >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                </svg>
-                View Certificate
-              </a>
-            )}
+            <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+              {c.certUrl && (
+                <a
+                  href={c.certUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="cert-view-btn"
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                  </svg>
+                  View Certificate
+                </a>
+              )}
+              {c.publishedUrl && (
+                <a
+                  href={c.publishedUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="cert-view-btn"
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  View Publication
+                </a>
+              )}
+            </div>
           </div>
         ))}
       </div>
