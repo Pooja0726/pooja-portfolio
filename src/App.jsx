@@ -75,6 +75,12 @@ const CERTS = [
     type: "Certification",
     certUrl: "/data-analytics-cert.pdf"
   },
+  {
+    name: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services (AWS) · June 2026",
+    type: "Certification",
+    certUrl: "/aws-cert.pdf"
+  },
 ];
 
 const POOJA_CONTEXT = `
@@ -103,6 +109,7 @@ Certifications:
 - Google Generative AI (Basic/Intermediate/Advanced) - Credly verified
 - Google Cloud Generative AI - Smartbridge, July 2025
 - Data Analytics Certificate - GeeksforGeeks
+- AWS Certified Cloud Practitioner - Amazon Web Services (AWS), June 2026
 Publication: WCSC 2025 - Facial Expression Recognition using CNN and SVM, published in Springer (https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12)
 
 Availability: Open to internships and research collaborations in AI/ML.
