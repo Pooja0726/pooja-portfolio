@@ -52,9 +52,9 @@ const CERTS = [
     publishedUrl: "https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12"
   },
   {
-    name: "Google Generative AI — Basic, Intermediate & Advanced",
+    name: "Credly badges",
     issuer: "Google",
-    type: "Certification",
+    type: "Badges",
     certUrl: "https://www.credly.com/users/pooja-sahu.22e83bbf"
   },
   {
