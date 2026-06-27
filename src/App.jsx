@@ -79,7 +79,7 @@ const CERTS = [
     name: "AWS Certified Cloud Practitioner",
     issuer: "Amazon Web Services (AWS) · June 2026",
     type: "Certification",
-    certUrl: "/aws-cert.pdf"
+    certUrl: "/AWS-Certified-Cloud-Practitioner-certificate.pdf"
   },
 ];
 
