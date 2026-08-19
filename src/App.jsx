@@ -19,95 +19,66 @@ const PROJECTS = [
     badge: null,
     color: "#4f8ef7",
     liveUrl: "https://researchmind-five.vercel.app",
-    liveLabel: "Live Demo",
     githubUrl: null,
   },
   {
     title: "Facial Expression Recognition",
-    subtitle: "Published at Springer — WCSC 2025",
-    desc: "Hybrid emotion recognition model using VGG16 + SVM achieving 84.40% accuracy and 0.85 F1 score on 35K+ images (CK+, FER-2013 datasets). Streamlit demo with real-time webcam integration. Published in Springer proceedings.",
+    subtitle: "Published Research — WCSC 2025",
+    desc: "Hybrid emotion recognition model using VGG16 + SVM achieving 84.40% accuracy and 0.85 F1 score on 35K+ images (CK+, FER-2013 datasets). Streamlit demo with real-time webcam integration.",
     tags: ["VGG16", "SVM", "TensorFlow", "Keras", "Streamlit", "OpenCV"],
     badge: "Published",
     color: "#a78bfa",
-    liveUrl: "https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12",
-    liveLabel: "View Publication",
+    liveUrl: null,
     githubUrl: null,
   },
   {
-    title: "Pace — Time Planner & Focus Tracker",
-    subtitle: "Full-Stack Productivity App",
-    desc: "Full-stack daily planning app with a Spring Boot REST API and PostgreSQL (Supabase) backend, React (Vite) frontend deployed via Docker on Render and Vercel. Features a priority-based auto-scheduler, live focus timer with category-wise time logging, and a browser-based Focus Guard using face-api.js for real-time webcam presence detection — entirely client-side with no video data transmitted or stored.",
-    tags: ["React", "Spring Boot", "PostgreSQL", "Docker", "Supabase", "face-api.js", "Vercel"],
-    badge: null,
-    color: "#f59e0b",
-    liveUrl: "https://timeplanner-frontend.vercel.app/",
-    liveLabel: "Live Demo",
-    githubUrl: "https://github.com/Pooja0726/timeplanner-frontend",
-  },
-  {
-    title: "Smart Enterprise System",
-    subtitle: "AI-Powered Business Platform",
-    desc: "Comprehensive AI-powered enterprise management system with intelligent automation, real-time analytics, and multi-module business process optimization. Deployed on Hugging Face Spaces with a production-grade backend.",
-    tags: ["Python", "Hugging Face", "AI", "REST API", "Data Analytics", "Enterprise"],
-    badge: null,
-    color: "#34d399",
-    liveUrl: "https://pooja26-enterprisesystem.hf.space/",
-    liveLabel: "Live Demo",
-    githubUrl: null,
-  },
-  {
-    title: "Smart Parking System",
-    subtitle: "IoT & AI Parking Solution",
-    desc: "Intelligent smart parking management system with real-time slot detection, automated booking, and AI-driven space optimization. Full-stack web application with live monitoring dashboard deployed on Vercel.",
-    tags: ["IoT", "AI", "React", "Node.js", "Real-time", "Vercel"],
+    title: "Chemical Equipment Visualiser",
+    subtitle: "Industrial Data Platform",
+    desc: "Hybrid industrial data visualisation app using Django REST, React, and PyQt5. Real-time charts, automated PDF reports, and packaged as a standalone Windows executable via PyInstaller for offline use.",
+    tags: ["Django REST", "React", "PyQt5", "Railway", "PyInstaller"],
     badge: null,
     color: "#38bdf8",
-    liveUrl: "https://kumbh-park-ai.vercel.app/",
-    liveLabel: "Live Demo",
-    githubUrl: null,
+    liveUrl: null,
+    githubUrl: "https://github.com/Pooja0726/chemical-equipment-visualizer.git",
   },
 ];
 
 const CERTS = [
   {
     name: "Facial Expression Recognition using CNN and SVM",
-    issuer: "Springer · 2nd World Congress on Smart Computing (WCSC 2025)",
+    issuer: "2nd World Congress on Smart Computing (WCSC 2025) · Springer",
     type: "Publication",
-    certUrl: "https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12",
-    btnLabel: "View on Springer",
-  },
-  {
-    name: "Introduction to Data Analytics",
-    issuer: "Institute of Applied Technology Digital · NSW Government · June 2026",
-    type: "Certification",
-    certUrl: "/Introduction_to_Data_Analytics_Certificate.pdf",
-    btnLabel: "View Certificate",
+    certUrl: "/wcsc-cert.pdf"
   },
   {
     name: "Google Generative AI — Basic, Intermediate & Advanced",
     issuer: "Google",
     type: "Certification",
-    certUrl: "https://www.credly.com/users/pooja-sahu.22e83bbf",
-    btnLabel: "View Certificate",
+    certUrl: "https://www.credly.com/users/pooja-sahu.22e83bbf"
   },
   {
     name: "Google Cloud Generative AI",
     issuer: "Smartbridge · July 2025",
     type: "Certification",
-    certUrl: "/smartbridge-cert.pdf",
-    btnLabel: "View Certificate",
+    certUrl: "/smartbridge-cert.pdf"
   },
   {
     name: "21 Projects, 21 Days: ML, Deep Learning & GenAI",
     issuer: "GeeksforGeeks",
     type: "Certification",
-    certUrl: "/gfg-cert.pdf",
-    btnLabel: "View Certificate",
+    certUrl: "/gfg-cert.pdf"
   },
 ];
 
 const POOJA_CONTEXT = `
 You are Pooja's AI portfolio assistant. Answer questions about Pooja Sahu concisely and professionally.
+
+STRICT FORMATTING RULES:
+- Always respond in plain conversational sentences or simple bullet points using "•"
+- Never use markdown tables, numbered lists with pipes, or headers like "# Title"
+- Never use bold markdown (**text**) or any markdown syntax
+- Keep answers short — 3 to 5 bullet points max unless asked for more detail
+- For project questions, list each project as a single bullet with a one-line summary
 
 About Pooja Sahu:
 - B.Tech Computer Science (AI-ML) student at VIT Bhopal, CGPA 8.87/10, batch 2023-2027
@@ -123,19 +94,16 @@ Experience:
 
 Projects:
 1. ResearchMind - Full-stack AI research platform, RAG with LLaMA 3.3 70B, ChromaDB vector search, live at researchmind-five.vercel.app
-2. Facial Expression Recognition - VGG16+SVM, 84.40% accuracy, published at Springer WCSC 2025, link: https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12
-3. Pace — Time Planner & Focus Tracker - Full-stack productivity app with Spring Boot, PostgreSQL, React, Docker, face-api.js Focus Guard. Live at https://timeplanner-frontend.vercel.app/, GitHub: https://github.com/Pooja0726/timeplanner-frontend
-4. Smart Enterprise System - AI-powered enterprise management system, live at https://pooja26-enterprisesystem.hf.space/
-5. Smart Parking System - IoT & AI smart parking solution, live at https://kumbh-park-ai.vercel.app/
+2. Facial Expression Recognition - VGG16+SVM, 84.40% accuracy, published at WCSC 2025 (Springer)
+3. Chemical Equipment Visualiser - Django REST + React + PyQt5, PDF reports, Windows executable
 
 Skills: Python, Java, C++, SQL, JavaScript, TensorFlow, Keras, Django, Flutter, Streamlit, Pandas, NumPy, Scikit-learn, Google Gemini API, Deep Learning, Machine Learning, Generative AI, RAG, Ollama, Computer Vision, GCP, Vercel
 
 Certifications:
-- Introduction to Data Analytics - Institute of Applied Technology Digital, NSW Government, June 2026
 - Google Generative AI (Basic/Intermediate/Advanced) - Credly verified
 - Google Cloud Generative AI - Smartbridge, July 2025
 - 21 Projects ML, Deep Learning & GenAI - GeeksforGeeks
-Publication: WCSC 2025 - Facial Expression Recognition using CNN and SVM (Published in Springer)
+Publication: WCSC 2025 - Facial Expression Recognition using CNN and SVM (Springer)
 
 Availability: Open to internships and research collaborations in AI/ML.
 Solved 100+ LeetCode problems.
@@ -324,7 +292,7 @@ function Home({ setPage }) {
           {[
             { num: "8.87", label: "CGPA / 10" },
             { num: "100+", label: "LeetCode Solved" },
-            { num: "5+",   label: "Projects Built" },
+            { num: "3+",   label: "Projects Built" },
             { num: "1",    label: "Publication" }
           ].map(s => (
             <div className="stat-card" key={s.label}>
@@ -538,7 +506,7 @@ function Projects() {
                     <polyline points="15 3 21 3 21 9"/>
                     <line x1="10" y1="14" x2="21" y2="3"/>
                   </svg>
-                  {p.liveLabel || "Live Demo"}
+                  Live Demo
                 </a>
               )}
               {p.githubUrl && (
