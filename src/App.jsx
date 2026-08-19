@@ -148,8 +148,8 @@ function AskPoojaBot() {
         }),
       });
       const data = await res.json();
-      const reply = data.choices?.[0]?.message?.content || "Sorry, I couldn't fetch a response.";
-      setMessages(prev => [...prev, { role: "assistant", text: reply }]);
+      const msg = data.choices?.[0]?.message;
+      const reply = msg?.content || msg?.reasoning_content || "Sorry, I couldn't fetch a response.";      setMessages(prev => [...prev, { role: "assistant", text: reply }]);
     } catch (err) {
       console.error("Bot error:", err);
       setMessages(prev => [...prev, { role: "assistant", text: "Sorry, something went wrong. Please try again!" }]);
