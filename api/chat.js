@@ -18,7 +18,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         model: "openai/gpt-oss-20b",
         max_tokens: 2000,
-        reasoning_effort: "none",
+        reasoning_effort: "low",
         messages
       }),
     });
