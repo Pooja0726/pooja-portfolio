@@ -19,26 +19,51 @@ const PROJECTS = [
     badge: null,
     color: "#4f8ef7",
     liveUrl: "https://researchmind-five.vercel.app",
+    liveLabel: "Live Demo",
     githubUrl: null,
   },
   {
-    title: "Smart Enterprise System",
-    subtitle: "AI-Powered Enterprise Platform",
-    desc: "Full-stack enterprise management platform with AI-driven insights for streamlining business operations, data handling, and decision-making workflows. Publicly deployed and accessible on HuggingFace Spaces.",
-    tags: ["Python", "AI/ML", "HuggingFace Spaces", "Full-Stack"],
-    badge: null,
+    title: "Facial Expression Recognition",
+    subtitle: "Published at Springer — WCSC 2025",
+    desc: "Hybrid emotion recognition model using VGG16 + SVM achieving 84.40% accuracy and 0.85 F1 score on 35K+ images (CK+, FER-2013 datasets). Streamlit demo with real-time webcam integration. Published in Springer proceedings.",
+    tags: ["VGG16", "SVM", "TensorFlow", "Keras", "Streamlit", "OpenCV"],
+    badge: "Published",
     color: "#a78bfa",
+    liveUrl: "https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12",
+    liveLabel: "View Publication",
+    githubUrl: null,
+  },
+  {
+    title: "Pace — Time Planner & Focus Tracker",
+    subtitle: "Full-Stack Productivity App",
+    desc: "Full-stack daily planning app with a Spring Boot REST API and PostgreSQL (Supabase) backend, React (Vite) frontend deployed via Docker on Render and Vercel. Features a priority-based auto-scheduler, live focus timer with category-wise time logging, and a browser-based Focus Guard using face-api.js for real-time webcam presence detection — entirely client-side with no video data transmitted or stored.",
+    tags: ["React", "Spring Boot", "PostgreSQL", "Docker", "Supabase", "face-api.js", "Vercel"],
+    badge: null,
+    color: "#f59e0b",
+    liveUrl: "https://timeplanner-frontend.vercel.app/",
+    liveLabel: "Live Demo",
+    githubUrl: "https://github.com/Pooja0726/timeplanner-frontend",
+  },
+  {
+    title: "Smart Enterprise System",
+    subtitle: "AI-Powered Business Platform",
+    desc: "Comprehensive AI-powered enterprise management system with intelligent automation, real-time analytics, and multi-module business process optimization. Deployed on Hugging Face Spaces with a production-grade backend.",
+    tags: ["Python", "Hugging Face", "AI", "REST API", "Data Analytics", "Enterprise"],
+    badge: null,
+    color: "#34d399",
     liveUrl: "https://pooja26-enterprisesystem.hf.space/",
+    liveLabel: "Live Demo",
     githubUrl: null,
   },
   {
     title: "Smart Parking System",
-    subtitle: "AI-Based Parking Management",
-    desc: "Intelligent parking management system using AI to optimise space detection and allocation, deployed for real-world demonstration.",
-    tags: ["AI/ML", "Computer Vision", "Vercel"],
+    subtitle: "IoT & AI Parking Solution",
+    desc: "Intelligent smart parking management system with real-time slot detection, automated booking, and AI-driven space optimization. Full-stack web application with live monitoring dashboard deployed on Vercel.",
+    tags: ["IoT", "AI", "React", "Node.js", "Real-time", "Vercel"],
     badge: null,
     color: "#38bdf8",
     liveUrl: "https://kumbh-park-ai.vercel.app/",
+    liveLabel: "Live Demo",
     githubUrl: null,
   },
 ];
@@ -46,40 +71,38 @@ const PROJECTS = [
 const CERTS = [
   {
     name: "Facial Expression Recognition using CNN and SVM",
-    issuer: "2nd World Congress on Smart Computing (WCSC 2025) · Springer",
+    issuer: "Springer · 2nd World Congress on Smart Computing (WCSC 2025)",
     type: "Publication",
-    certUrl: "/wcsc-cert.pdf",
-    publishedUrl: "https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12"
+    certUrl: "https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12",
+    btnLabel: "View on Springer",
   },
   {
-    name: "Credly badges",
+    name: "Introduction to Data Analytics",
+    issuer: "Institute of Applied Technology Digital · NSW Government · June 2026",
+    type: "Certification",
+    certUrl: "/Introduction_to_Data_Analytics_Certificate.pdf",
+    btnLabel: "View Certificate",
+  },
+  {
+    name: "Google Generative AI — Basic, Intermediate & Advanced",
     issuer: "Google",
-    type: "Badges",
-    certUrl: "https://www.credly.com/users/pooja-sahu.22e83bbf"
+    type: "Certification",
+    certUrl: "https://www.credly.com/users/pooja-sahu.22e83bbf",
+    btnLabel: "View Certificate",
   },
   {
     name: "Google Cloud Generative AI",
     issuer: "Smartbridge · July 2025",
     type: "Certification",
-    certUrl: "/smartbridge-cert.pdf"
+    certUrl: "/smartbridge-cert.pdf",
+    btnLabel: "View Certificate",
   },
   {
-    name: "AIML certification",
+    name: "21 Projects, 21 Days: ML, Deep Learning & GenAI",
     issuer: "GeeksforGeeks",
     type: "Certification",
-    certUrl: "/gfg-cert.pdf"
-  },
-  {
-    name: "Data Analytics Certificate",
-    issuer: "Institute of Applied Technology",
-    type: "Certification",
-    certUrl: "/data-analytics-cert.pdf"
-  },
-  {
-    name: "AWS Certified Cloud Practitioner",
-    issuer: "Amazon Web Services (AWS) · June 2026",
-    type: "Certification",
-    certUrl: "/AWS-Certified-Cloud-Practitioner-certificate.pdf"
+    certUrl: "/gfg-cert.pdf",
+    btnLabel: "View Certificate",
   },
 ];
 
@@ -87,7 +110,7 @@ const POOJA_CONTEXT = `
 You are Pooja's AI portfolio assistant. Answer questions about Pooja Sahu concisely and professionally.
 
 About Pooja Sahu:
-- B.Tech Computer Science (AI-ML) student at VIT Bhopal, CGPA 8.93/10, batch 2023-2027
+- B.Tech Computer Science (AI-ML) student at VIT Bhopal, CGPA 8.87/10, batch 2023-2027
 - Location: Bhopal, MP, India
 - Email: sahupooja43890@gmail.com
 - LinkedIn: https://www.linkedin.com/in/pooja-sahu-54b5a7281/
@@ -100,17 +123,19 @@ Experience:
 
 Projects:
 1. ResearchMind - Full-stack AI research platform, RAG with LLaMA 3.3 70B, ChromaDB vector search, live at researchmind-five.vercel.app
-2. Smart Enterprise System - AI-powered enterprise management platform, live at pooja26-enterprisesystem.hf.space
-3. Smart Parking System - AI-based smart parking management system, deployed at kumbh-park-ai.vercel.app
+2. Facial Expression Recognition - VGG16+SVM, 84.40% accuracy, published at Springer WCSC 2025, link: https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12
+3. Pace — Time Planner & Focus Tracker - Full-stack productivity app with Spring Boot, PostgreSQL, React, Docker, face-api.js Focus Guard. Live at https://timeplanner-frontend.vercel.app/, GitHub: https://github.com/Pooja0726/timeplanner-frontend
+4. Smart Enterprise System - AI-powered enterprise management system, live at https://pooja26-enterprisesystem.hf.space/
+5. Smart Parking System - IoT & AI smart parking solution, live at https://kumbh-park-ai.vercel.app/
 
 Skills: Python, Java, C++, SQL, JavaScript, TensorFlow, Keras, Django, Flutter, Streamlit, Pandas, NumPy, Scikit-learn, Google Gemini API, Deep Learning, Machine Learning, Generative AI, RAG, Ollama, Computer Vision, GCP, Vercel
 
 Certifications:
+- Introduction to Data Analytics - Institute of Applied Technology Digital, NSW Government, June 2026
 - Google Generative AI (Basic/Intermediate/Advanced) - Credly verified
 - Google Cloud Generative AI - Smartbridge, July 2025
-- Data Analytics Certificate - GeeksforGeeks
-- AWS Certified Cloud Practitioner - Amazon Web Services (AWS), June 2026
-Publication: WCSC 2025 - Facial Expression Recognition using CNN and SVM, published in Springer (https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12)
+- 21 Projects ML, Deep Learning & GenAI - GeeksforGeeks
+Publication: WCSC 2025 - Facial Expression Recognition using CNN and SVM (Published in Springer)
 
 Availability: Open to internships and research collaborations in AI/ML.
 Solved 100+ LeetCode problems.
@@ -297,9 +322,9 @@ function Home({ setPage }) {
         </div>
         <div className="stats-grid">
           {[
-            { num: "8.93", label: "CGPA / 10" },
+            { num: "8.87", label: "CGPA / 10" },
             { num: "100+", label: "LeetCode Solved" },
-            { num: "3+",   label: "Projects Built" },
+            { num: "5+",   label: "Projects Built" },
             { num: "1",    label: "Publication" }
           ].map(s => (
             <div className="stat-card" key={s.label}>
@@ -332,7 +357,7 @@ function About({ setPage }) {
             <div className="info-row"><span className="info-key">Degree</span><span>B.Tech CS (AI-ML)</span></div>
             <div className="info-row"><span className="info-key">University</span><span>VIT Bhopal</span></div>
             <div className="info-row"><span className="info-key">Batch</span><span>2023 – 2027</span></div>
-            <div className="info-row"><span className="info-key">CGPA</span><span className="info-highlight">8.93 / 10</span></div>
+            <div className="info-row"><span className="info-key">CGPA</span><span className="info-highlight">8.87 / 10</span></div>
             <div className="info-row"><span className="info-key">Email</span><span>sahupooja43890@gmail.com</span></div>
             <a
               href="https://www.linkedin.com/in/pooja-sahu-54b5a7281/"
@@ -346,7 +371,7 @@ function About({ setPage }) {
           </div>
         </div>
         <div className="about-text-col">
-          <p>I am a <strong>B.Tech Computer Science (AI-ML)</strong> student at Vellore Institute of Technology, Bhopal, maintaining a CGPA of <strong>8.93 / 10</strong>. I combine deep research curiosity with practical engineering to deliver end-to-end AI solutions.</p>
+          <p>I am a <strong>B.Tech Computer Science (AI-ML)</strong> student at Vellore Institute of Technology, Bhopal, maintaining a CGPA of <strong>8.87 / 10</strong>. I combine deep research curiosity with practical engineering to deliver end-to-end AI solutions.</p>
           <p>With <strong>1+ year of Python development</strong> experience, I have built hybrid ML models published at international conferences and full-stack research platforms deployed on Vercel and HuggingFace Spaces.</p>
           <p>I regularly solve algorithmic problems on <strong>LeetCode (100+ solved)</strong> and stay up to date with Generative AI, RAG architectures, and large language models.</p>
           <div className="chips-wrap">
@@ -445,7 +470,7 @@ function Experience() {
           <div className="edu-school">Vellore Institute of Technology, Bhopal</div>
           <div className="edu-meta">
             <span>Sep 2023 – Aug 2027</span>
-            <span className="edu-cgpa">CGPA: 8.93 / 10</span>
+            <span className="edu-cgpa">CGPA: 8.87 / 10</span>
             <span>Bhopal, MP</span>
           </div>
         </div>
@@ -461,37 +486,20 @@ function Experience() {
             <div className="cert-type-badge">{c.type}</div>
             <div className="cert-name">{c.name}</div>
             <div className="cert-issuer">{c.issuer}</div>
-            <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
-              {c.certUrl && (
-                <a
-                  href={c.certUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="cert-view-btn"
-                >
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                  </svg>
-                  View Certificate
-                </a>
-              )}
-              {c.publishedUrl && (
-                <a
-                  href={c.publishedUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="cert-view-btn"
-                >
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                    <polyline points="15 3 21 3 21 9"/>
-                    <line x1="10" y1="14" x2="21" y2="3"/>
-                  </svg>
-                  View Publication
-                </a>
-              )}
-            </div>
+            {c.certUrl && (
+              <a
+                href={c.certUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="cert-view-btn"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                View Certificate
+              </a>
+            )}
           </div>
         ))}
       </div>
@@ -530,7 +538,7 @@ function Projects() {
                     <polyline points="15 3 21 3 21 9"/>
                     <line x1="10" y1="14" x2="21" y2="3"/>
                   </svg>
-                  Live Demo
+                  {p.liveLabel || "Live Demo"}
                 </a>
               )}
               {p.githubUrl && (
