@@ -23,8 +23,9 @@ export default async function handler(req, res) {
     });
 
     const data = await response.json();
-    console.log("Groq response status:", response.status);
-    console.log("Groq response data:", JSON.stringify(data));
+    console.log("Groq status:", response.status);
+    console.log("Groq error detail:", JSON.stringify(data?.error));
+    console.log("Key present:", !!process.env.GROQ_API_KEY);
     return res.status(200).json(data);
   } catch (err) {
     console.error("Groq API error:", err);
