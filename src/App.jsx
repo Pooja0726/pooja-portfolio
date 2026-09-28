@@ -12,159 +12,88 @@ const SKILLS = [
 
 const PROJECTS = [
   {
-    title: "ResearchMind",
-    subtitle: "AI Research Platform",
-    desc: "Full-stack AI research platform with semantic vector search across 100+ papers from ArXiv, HuggingFace & Semantic Scholar. RAG-powered assistant using Groq's LLaMA 3.3 70B with real-time paper alerts and sub-second response time.",
-    tags: ["React", "FastAPI", "ChromaDB", "RAG", "LLaMA 3.3 70B", "SQLite", "Vercel"],
-    badge: null,
-    color: "#4f8ef7",
+    title: "ResearchMind AI research platform",
+    subtitle: "Full-stack AI research platform with semantic vector search across 100+ papers from ArXiv, HuggingFace & Semantic Scholar. RAG-powered assistant using Groq's LLaMA 3.3 70B.",
+    tags: ["React", "FastAPI", "ChromaDB", "RAG", "LLaMA 3.3 70B", "Vercel"],
     liveUrl: "https://researchmind-five.vercel.app",
     liveLabel: "Live Demo",
     githubUrl: null,
   },
   {
     title: "Facial Expression Recognition",
-    subtitle: "Published at Springer — WCSC 2025",
-    desc: "Hybrid emotion recognition model using VGG16 + SVM achieving 84.40% accuracy and 0.85 F1 score on 35K+ images (CK+, FER-2013 datasets). Streamlit demo with real-time webcam integration. Published in Springer proceedings.",
-    tags: ["VGG16", "SVM", "TensorFlow", "Keras", "Streamlit", "OpenCV"],
-    badge: "Published",
-    color: "#a78bfa",
+    subtitle: "Hybrid emotion recognition model using VGG16 + SVM achieving 84.40% accuracy on CK+ and FER-2013 datasets. Published in Springer proceedings.",
+    tags: ["VGG16", "SVM", "TensorFlow", "Keras", "Streamlit"],
     liveUrl: "https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12",
     liveLabel: "View Publication",
     githubUrl: null,
+    badge: "Published at Springer — WCSC 2025"
   },
   {
     title: "Pace — Time Planner & Focus Tracker",
-    subtitle: "Full-Stack Productivity App",
-    desc: "Full-stack daily planning app with a Spring Boot REST API and PostgreSQL (Supabase) backend, React (Vite) frontend deployed via Docker on Render and Vercel. Features a priority-based auto-scheduler, live focus timer with category-wise time logging, and a browser-based Focus Guard using face-api.js for real-time webcam presence detection — entirely client-side with no video data transmitted or stored.",
-    tags: ["React", "Spring Boot", "PostgreSQL", "Docker", "Supabase", "face-api.js", "Vercel"],
-    badge: null,
-    color: "#f59e0b",
+    subtitle: "Full-stack daily planning app with Spring Boot REST API, PostgreSQL, React (Vite). Features a priority-based auto-scheduler and a browser-based Focus Guard.",
+    tags: ["React", "Spring Boot", "PostgreSQL", "Docker", "Vercel"],
     liveUrl: "https://timeplanner-frontend.vercel.app/",
     liveLabel: "Live Demo",
     githubUrl: "https://github.com/Pooja0726/timeplanner-frontend",
   },
   {
     title: "Smart Enterprise System",
-    subtitle: "AI-Powered Business Platform",
-    desc: "Comprehensive AI-powered enterprise management system with intelligent automation, real-time analytics, and multi-module business process optimization. Deployed on Hugging Face Spaces with a production-grade backend.",
-    tags: ["Python", "Hugging Face", "AI", "REST API", "Data Analytics", "Enterprise"],
-    badge: null,
-    color: "#34d399",
+    subtitle: "AI-powered enterprise management system with intelligent automation, real-time analytics, and multi-module business process optimization.",
+    tags: ["Python", "Hugging Face", "AI", "REST API", "Enterprise"],
     liveUrl: "https://pooja26-enterprisesystem.hf.space/",
     liveLabel: "Live Demo",
     githubUrl: null,
-  },
-  {
-    title: "Smart Parking System",
-    subtitle: "IoT & AI Parking Solution",
-    desc: "Intelligent smart parking management system with real-time slot detection, automated booking, and AI-driven space optimization. Full-stack web application with live monitoring dashboard deployed on Vercel.",
-    tags: ["IoT", "AI", "React", "Node.js", "Real-time", "Vercel"],
-    badge: null,
-    color: "#38bdf8",
-    liveUrl: "https://kumbh-park-ai.vercel.app/",
-    liveLabel: "Live Demo",
-    githubUrl: null,
-  },
+  }
 ];
 
 const CERTS = [
   {
     name: "Facial Expression Recognition using CNN and SVM",
-    issuer: "Springer · 2nd World Congress on Smart Computing (WCSC 2025)",
-    type: "Publication",
+    issuer: "Publication",
     certUrl: "https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12",
-    btnLabel: "View on Springer",
   },
   {
     name: "Introduction to Data Analytics",
-    issuer: "Institute of Applied Technology Digital · NSW Government · June 2026",
-    type: "Certification",
+    issuer: "Certification",
     certUrl: "/Introduction_to_Data_Analytics_Certificate.pdf",
-    btnLabel: "View Certificate",
   },
   {
-    name: "Google Generative AI — Basic, Intermediate & Advanced",
-    issuer: "Google",
-    type: "Certification",
+    name: "Google Generative AI Basic Intermediate & Advanced",
+    issuer: "Certification",
     certUrl: "https://www.credly.com/users/pooja-sahu.22e83bbf",
-    btnLabel: "View Certificate",
   },
   {
     name: "Google Cloud Generative AI",
-    issuer: "Smartbridge · July 2025",
-    type: "Certification",
+    issuer: "Certification",
     certUrl: "/smartbridge-cert.pdf",
-    btnLabel: "View Certificate",
   },
   {
-    name: "21 Projects, 21 Days: ML, Deep Learning & GenAI",
-    issuer: "GeeksforGeeks",
-    type: "Certification",
+    name: "21 Projects 21 Days ML Deep Learning & GenAI",
+    issuer: "Certification",
     certUrl: "/gfg-cert.pdf",
-    btnLabel: "View Certificate",
   },
 ];
 
-const POOJA_CONTEXT = `
-You are Pooja's AI portfolio assistant. Answer questions about Pooja Sahu concisely and professionally.
-
+const POOJA_CONTEXT = `You are Pooja's AI portfolio assistant. Answer questions about Pooja Sahu concisely and professionally.
 STRICT FORMATTING RULES:
 - Always respond in plain conversational sentences or simple bullet points using "•"
 - Never use markdown tables, numbered lists with pipes, or headers like "# Title"
-- Never use bold markdown (**text**) or any markdown syntax
-- Keep answers short — 3 to 5 bullet points max unless asked for more detail
-- For project questions, list each project as a single bullet with a one-line summary
-
+- Keep answers short — 3 to 5 bullet points max.
 About Pooja Sahu:
-- B.Tech Computer Science (AI-ML) student at VIT Bhopal, CGPA 8.93/10, batch 2023-2027
+- B.Tech Computer Science (AI-ML) student at VIT Bhopal, CGPA 8.87/10
 - Location: Bhopal, MP, India
 - Email: sahupooja43890@gmail.com
-- LinkedIn: https://www.linkedin.com/in/pooja-sahu-54b5a7281/
-- GitHub: https://github.com/Pooja0726
-
-Experience:
-- AI/ML Intern at Amasqis.ai (April 2025 - September 2025, Remote)
-  - Designed and developed user-friendly interfaces for a financial AI platform using Figma
-  - Created 15+ dashboard components presenting customer insights and performance metrics
-
-Projects:
-1. ResearchMind - Full-stack AI research platform, RAG with LLaMA 3.3 70B, ChromaDB vector search, live at researchmind-five.vercel.app
-2. Facial Expression Recognition - VGG16+SVM, 84.40% accuracy, published at Springer WCSC 2025, link: https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12
-3. Pace — Time Planner & Focus Tracker - Full-stack productivity app with Spring Boot, PostgreSQL, React, Docker, face-api.js Focus Guard. Live at https://timeplanner-frontend.vercel.app/, GitHub: https://github.com/Pooja0726/timeplanner-frontend
-4. Smart Enterprise System - AI-powered enterprise management system, live at https://pooja26-enterprisesystem.hf.space/
-5. Smart Parking System - IoT & AI smart parking solution, live at https://kumbh-park-ai.vercel.app/
-
-Skills: Python, Java, C++, SQL, JavaScript, TensorFlow, Keras, Django, Flutter, Streamlit, Pandas, NumPy, Scikit-learn, Google Gemini API, Deep Learning, Machine Learning, Generative AI, RAG, Ollama, Computer Vision, GCP, Vercel
-
-Certifications:
-- Introduction to Data Analytics - Institute of Applied Technology Digital, NSW Government, June 2026
-- Google Generative AI (Basic/Intermediate/Advanced) - Credly verified
-- Google Cloud Generative AI - Smartbridge, July 2025
-- 21 Projects ML, Deep Learning & GenAI - GeeksforGeeks
-- AWS Certified Cloud Practitioner - Amazon Web Services, June 2026
-Publication: WCSC 2025 - Facial Expression Recognition using CNN and SVM (Published in Springer)
-
-Availability: Open to internships and research collaborations in AI/ML.
-Solved 100+ LeetCode problems.
-`;
+Experience: AI/ML Intern at Amasqis.ai (Apr 2025 - Sep 2025)
+Skills: Python, Java, C++, SQL, JavaScript, TensorFlow, Keras, Django, Flutter, Streamlit, Pandas, NumPy, Scikit-learn, GCP.`;
 
 /* ─── ASK POOJA BOT ─── */
-function AskPoojaBot() {
-  const [open, setOpen] = useState(false);
+function AskPoojaBot({ open, setOpen }) {
   const [messages, setMessages] = useState([
-    { role: "assistant", text: "Hi! I'm Pooja's AI assistant. Ask me anything about her skills, projects, experience, or availability!" }
+    { role: "assistant", text: "Hi! I'm Pooja's AI assistant. Ask me anything about her skills or projects!" }
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef(null);
-
-  const suggestions = [
-    "Is Pooja available for internships?",
-    "What projects has she built?",
-    "What are her ML skills?",
-    "Tell me about her research publication",
-  ];
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -177,15 +106,20 @@ function AskPoojaBot() {
     setMessages(prev => [...prev, { role: "user", text: userText }]);
     setLoading(true);
     try {
-      const res = await fetch("/api/chat", {
+      // Fetch directly from Groq to avoid local proxy/SSL issues
+      const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`
+        },
         body: JSON.stringify({
+          model: "qwen/qwen3.8-27b",
           messages: [
             { role: "system", content: POOJA_CONTEXT },
             { role: "user", content: userText }
           ]
-        }),
+        })
       });
       const data = await res.json();
       const reply = data.choices?.[0]?.message?.content || "Sorry, I couldn't fetch a response.";
@@ -197,199 +131,107 @@ function AskPoojaBot() {
     setLoading(false);
   }
 
+  if (!open) return null;
+
   return (
-    <>
-      <button className="ask-fab" onClick={() => setOpen(p => !p)} aria-label="Ask Pooja AI">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        </svg>
-        <span>Ask Pooja</span>
-      </button>
-
-      {open && (
-        <div className="ask-window">
-          <div className="ask-header">
-            <div className="ask-header-info">
-              <div className="ask-avatar">P</div>
-              <div>
-                <div className="ask-title">Ask Pooja</div>
-                <div className="ask-subtitle">AI portfolio assistant</div>
-              </div>
-            </div>
-            <button className="ask-close" onClick={() => setOpen(false)}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="18" y1="6" x2="6" y2="18"/>
-                <line x1="6" y1="6" x2="18" y2="18"/>
-              </svg>
-            </button>
-          </div>
-
-          <div className="ask-messages">
-            {messages.map((m, i) => (
-              <div key={i} className={`ask-msg ${m.role}`}>
-                {m.role === "assistant" && <div className="ask-msg-avatar">P</div>}
-                <div className="ask-msg-bubble">{m.text}</div>
-              </div>
-            ))}
-            {loading && (
-              <div className="ask-msg assistant">
-                <div className="ask-msg-avatar">P</div>
-                <div className="ask-msg-bubble ask-typing"><span/><span/><span/></div>
-              </div>
-            )}
-            <div ref={bottomRef}/>
-          </div>
-
-          {messages.length === 1 && (
-            <div className="ask-suggestions">
-              {suggestions.map(s => (
-                <button key={s} className="ask-suggestion" onClick={() => sendMessage(s)}>{s}</button>
-              ))}
-            </div>
-          )}
-
-          <div className="ask-input-row">
-            <input
-              className="ask-input"
-              placeholder="Ask me anything..."
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={e => e.key === "Enter" && sendMessage()}
-            />
-            <button className="ask-send" onClick={() => sendMessage()} disabled={loading}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="22" y1="2" x2="11" y2="13"/>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-              </svg>
-            </button>
+    <div className="ask-window neu-out">
+      <div className="ask-header">
+        <div className="ask-header-info">
+          <div className="ask-avatar">P</div>
+          <div>
+            <div className="ask-title">Ask Pooja</div>
+            <div className="ask-subtitle">AI portfolio assistant</div>
           </div>
         </div>
-      )}
-    </>
+        <button className="ask-close" onClick={() => setOpen(false)}>✕</button>
+      </div>
+      <div className="ask-messages">
+        {messages.map((m, i) => (
+          <div key={i} className={`ask-msg ${m.role}`}>
+            {m.role === "assistant" && <div className="ask-msg-avatar">P</div>}
+            <div className={`ask-msg-bubble ${m.role === 'assistant' ? 'neu-in' : 'neu-out-green'}`}>{m.text}</div>
+          </div>
+        ))}
+        {loading && <div className="ask-msg assistant"><div className="ask-msg-bubble neu-in">...</div></div>}
+        <div ref={bottomRef}/>
+      </div>
+      <div className="ask-input-row">
+        <input
+          className="ask-input neu-in"
+          placeholder="Ask me anything..."
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          onKeyDown={e => e.key === "Enter" && sendMessage()}
+        />
+        <button className="ask-send neu-out-green" onClick={() => sendMessage()} disabled={loading}>↑</button>
+      </div>
+    </div>
   );
 }
 
 /* ─── NAV ─── */
-function Nav({ page, setPage }) {
-  const [open, setOpen] = useState(false);
-  const links = ["Home", "About", "Skills", "Experience", "Projects", "Contact"];
+function Nav({ page, setPage, setChatOpen }) {
+  const links = ["About", "Skills", "Experience", "Projects", "Contact"];
   return (
-    <nav className="nav">
-      <span className="nav-logo" onClick={() => setPage("Home")}>PS.</span>
+    <nav className="nav neu-out">
+      <div className="nav-brand">
+        <span className="nav-title">Pooja Sahu</span>
+        <span className="nav-logo">PS.</span>
+      </div>
       <ul className="nav-links">
         {links.map(l => (
           <li key={l}>
             <span
-              className={`nav-link${page === l ? " active" : ""}`}
-              onClick={() => { setPage(l); setOpen(false); }}
+              className={`nav-link ${page === l ? "neu-in active" : ""}`}
+              onClick={() => setPage(l)}
             >
               {l}
             </span>
           </li>
         ))}
       </ul>
-      <button className="hamburger" onClick={() => setOpen(p => !p)} aria-label="menu">
-        <span/><span/><span/>
+      <button className="nav-cta neu-out-green" onClick={() => setChatOpen(p => !p)}>
+        <span className="dot"></span> Let's Talk
       </button>
-      {open && (
-        <div className="mobile-menu">
-          {links.map(l => (
-            <span key={l} onClick={() => { setPage(l); setOpen(false); }}>{l}</span>
-          ))}
-        </div>
-      )}
     </nav>
   );
 }
 
-/* ─── HOME ─── */
-function Home({ setPage }) {
-  return (
-    <main className="page home-page">
-      <div className="home-left">
-        <div className="home-badge"><span className="dot"/>Open to Opportunities</div>
-        <h1 className="home-title">Hi, I'm<br/><span className="grad">Pooja Sahu</span></h1>
-        <p className="home-sub">
-          AI/ML Student and Developer specialising in deep learning, computer vision,
-          and full-stack development. Published researcher building end-to-end intelligent systems.
-        </p>
-        <div className="home-actions">
-          <button className="btn-primary" onClick={() => setPage("Projects")}>View Projects</button>
-          <button className="btn-outline" onClick={() => setPage("Contact")}>Get in Touch</button>
-        </div>
-        <div className="home-socials">
-          <a href="https://www.linkedin.com/in/pooja-sahu-54b5a7281/" target="_blank" rel="noreferrer" className="soc-link">LinkedIn</a>
-          <a href="https://github.com/Pooja0726" target="_blank" rel="noreferrer" className="soc-link">GitHub</a>
-          <a href="mailto:sahupooja43890@gmail.com" className="soc-link">Email</a>
-        </div>
-      </div>
-      <div className="home-right">
-        <div className="photo-frame">
-          <img src="/photo.jpeg" alt="Pooja Sahu" className="home-photo"/>
-          <div className="photo-ring"/>
-        </div>
-        <div className="stats-grid">
-          {[
-            { num: "8.87", label: "CGPA / 10" },
-            { num: "100+", label: "LeetCode Solved" },
-            { num: "5+",   label: "Projects Built" },
-            { num: "1",    label: "Publication" }
-          ].map(s => (
-            <div className="stat-card" key={s.label}>
-              <span className="stat-num">{s.num}</span>
-              <span className="stat-label">{s.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </main>
-  );
-}
-
-/* ─── ABOUT ─── */
+/* ─── HOME & ABOUT (Combined look) ─── */
 function About({ setPage }) {
   return (
     <main className="page about-page">
-      <div className="page-header">
-        <div className="section-tag">About Me</div>
-        <h2 className="page-title">Who I Am</h2>
-        <p className="page-sub">Passionate about building intelligent systems that create real impact.</p>
-      </div>
       <div className="about-grid">
-        <div className="about-photo-col">
-          <div className="about-photo-wrap">
-            <img src="/photo.jpeg" alt="Pooja Sahu" className="about-photo"/>
+        <div className="about-left neu-out">
+          <div className="photo-wrap neu-in">
+            <img src="/photo.jpeg" alt="Pooja Sahu" />
           </div>
-          <div className="about-info-card">
-            <div className="info-row"><span className="info-key">Location</span><span>Bhopal, MP, India</span></div>
-            <div className="info-row"><span className="info-key">Degree</span><span>B.Tech CS (AI-ML)</span></div>
-            <div className="info-row"><span className="info-key">University</span><span>VIT Bhopal</span></div>
-            <div className="info-row"><span className="info-key">Batch</span><span>2023 – 2027</span></div>
-            <div className="info-row"><span className="info-key">CGPA</span><span className="info-highlight">8.87 / 10</span></div>
-            <div className="info-row"><span className="info-key">Email</span><span>sahupooja43890@gmail.com</span></div>
-            <a
-              href="https://www.linkedin.com/in/pooja-sahu-54b5a7281/"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-primary"
-              style={{ marginTop: "1.2rem", display: "flex", justifyContent: "center", textDecoration: "none" }}
-            >
-              Connect on LinkedIn
-            </a>
+          <div className="about-info">
+            <div className="info-row"><span>LOCATION</span><span>Bhopal, MP, India</span></div>
+            <div className="info-row"><span>DEGREE</span><span>B.Tech CS (AI-ML)</span></div>
+            <div className="info-row"><span>UNIVERSITY</span><span>VIT Bhopal</span></div>
+            <div className="info-row"><span>BATCH</span><span>2023 - 2027</span></div>
+            <div className="info-row"><span>CGPA</span><span className="bold">8.87 / 10</span></div>
+            <div className="info-row"><span>EMAIL</span><span>sahupooja43890@gmail.com</span></div>
           </div>
         </div>
-        <div className="about-text-col">
-          <p>I am a <strong>B.Tech Computer Science (AI-ML)</strong> student at Vellore Institute of Technology, Bhopal, maintaining a CGPA of <strong>8.87 / 10</strong>. I combine deep research curiosity with practical engineering to deliver end-to-end AI solutions.</p>
-          <p>With <strong>1+ year of Python development</strong> experience, I have built hybrid ML models published at international conferences and full-stack research platforms deployed on Vercel and HuggingFace Spaces.</p>
-          <p>I regularly solve algorithmic problems on <strong>LeetCode (100+ solved)</strong> and stay up to date with Generative AI, RAG architectures, and large language models.</p>
+        <div className="about-right neu-out">
+          <h1 className="page-title">Who I Am</h1>
+          <p className="page-sub">Passionate about building intelligent systems that create real impact.</p>
+          <div className="about-text">
+            <p>I am a <strong>B.Tech Computer Science (AI-ML)</strong> student at Vellore Institute of Technology, Bhopal, maintaining a CGPA of <strong>8.87 / 10</strong>. I combine deep research curiosity with practical engineering to deliver end-to-end AI solutions.</p>
+            <p>With <strong>1+ year of Python development</strong> experience, I have built hybrid ML models published at international conferences and full-stack research platforms deployed on Vercel and HuggingFace Spaces.</p>
+            <p>I regularly solve algorithmic problems on <strong>LeetCode (100+ solved)</strong> and stay up to date with <strong>Generative AI</strong>, RAG architectures, and large language models.</p>
+          </div>
           <div className="chips-wrap">
             {["Deep Learning", "Computer Vision", "Full-Stack Dev", "Published Researcher", "Generative AI", "Mobile Dev", "Cloud (GCP)", "Agile"].map(c => (
-              <span className="chip" key={c}>{c}</span>
+              <span className="chip neu-out-sm" key={c}>{c}</span>
             ))}
           </div>
           <div className="about-actions">
-            <button className="btn-primary" onClick={() => setPage("Skills")}>View My Skills</button>
-            <button className="btn-outline" onClick={() => setPage("Projects")}>See Projects</button>
+            <button className="btn neu-out-green" onClick={() => setPage("Skills")}>View My Skills</button>
+            <button className="btn neu-out-green" onClick={() => setPage("Projects")}>See Projects</button>
+            <a href="https://www.linkedin.com/in/pooja-sahu-54b5a7281/" target="_blank" rel="noreferrer" className="btn neu-out-blue">Connect on LinkedIn</a>
           </div>
         </div>
       </div>
@@ -401,17 +243,12 @@ function About({ setPage }) {
 function Skills() {
   return (
     <main className="page">
-      <div className="page-header">
-        <div className="section-tag">Skills</div>
-        <h2 className="page-title">Skills & Expertise</h2>
-        <p className="page-sub">A comprehensive overview of my technical capabilities.</p>
-      </div>
       <div className="skills-grid">
         {SKILLS.map(g => (
-          <div className="skill-card" key={g.title}>
+          <div className="skill-card neu-out" key={g.title}>
             <div className="skill-card-title">{g.title}</div>
             <div className="skill-pills">
-              {g.pills.map(p => <span className="pill" key={p}>{p}</span>)}
+              {g.pills.map(p => <span className="pill neu-out-green" key={p}>{p}</span>)}
             </div>
           </div>
         ))}
@@ -423,93 +260,56 @@ function Skills() {
 /* ─── EXPERIENCE ─── */
 function Experience() {
   return (
-    <main className="page">
-      <div className="page-header">
-        <div className="section-tag">Experience</div>
-        <h2 className="page-title">Work Experience</h2>
-        <p className="page-sub">Hands-on industry experience building AI-powered products.</p>
-      </div>
-
-      <div className="timeline">
-        <div className="timeline-item">
-          <div className="timeline-dot"/>
-          <div className="timeline-card">
-            <div className="tl-header">
-              <div>
-                <div className="tl-role">AI / ML Intern</div>
-                <div className="tl-company">Amasqis.ai · Remote</div>
+    <main className="page experience-page">
+      <div className="exp-grid">
+        <div className="exp-left">
+          <div className="timeline">
+            <div className="timeline-item">
+              <div className="tl-dot neu-out-green"></div>
+              <div className="tl-card neu-out">
+                <div className="tl-title">Work Experience</div>
               </div>
-              <div className="tl-date">Apr 2025 – Sep 2025</div>
             </div>
-            <ul className="tl-list">
-              <li>Designed and developed user-friendly interfaces for a financial AI platform using Figma.</li>
-              <li>Created <strong>15+ dashboard components</strong> presenting customer insights and performance metrics, enhancing overall UI/UX experience.</li>
-            </ul>
-            <a
-              href="/amasqis-cert.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="cert-view-btn"
-              style={{ marginTop: "1.2rem", display: "inline-flex" }}
-            >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-              </svg>
-              View Certificate
-            </a>
+            <div className="timeline-item">
+              <div className="tl-card neu-out no-dot">
+                <div className="tl-role">AI / ML Intern</div>
+                <div className="tl-company">Amasqis.ai — Remote</div>
+                <div className="tl-date">Apr 2025–Sep 2025</div>
+              </div>
+            </div>
+            
+            <div className="timeline-item mt-4">
+              <div className="tl-dot neu-out-green"></div>
+              <div className="tl-card neu-out">
+                <div className="tl-title">Academic Background</div>
+              </div>
+            </div>
+            <div className="timeline-item">
+              <div className="tl-card neu-out no-dot">
+                <div className="tl-role">Bachelor of Technology — Computer Science (AI-ML)</div>
+                <div className="tl-company">Vellore Institute of Technology, Bhopal</div>
+                <div className="tl-date">Sep 2023–Aug 2027</div>
+                <div className="tl-cgpa">CGPA: <strong>8.87</strong> / 10</div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="page-header" style={{ marginTop: "4rem" }}>
-        <div className="section-tag">Education</div>
-        <h2 className="page-title">Academic Background</h2>
-      </div>
-      <div className="edu-card">
-        <div className="edu-icon-box">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-            <path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/>
-          </svg>
-        </div>
-        <div>
-          <div className="edu-degree">Bachelor of Technology — Computer Science (AI-ML)</div>
-          <div className="edu-school">Vellore Institute of Technology, Bhopal</div>
-          <div className="edu-meta">
-            <span>Sep 2023 – Aug 2027</span>
-            <span className="edu-cgpa">CGPA: 8.87 / 10</span>
-            <span>Bhopal, MP</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="page-header" style={{ marginTop: "4rem" }}>
-        <div className="section-tag">Certifications & Publications</div>
-        <h2 className="page-title">Recognition & Learning</h2>
-      </div>
-      <div className="cert-grid">
-        {CERTS.map(c => (
-          <div className="cert-card" key={c.name}>
-            <div className="cert-type-badge">{c.type}</div>
-            <div className="cert-name">{c.name}</div>
-            <div className="cert-issuer">{c.issuer}</div>
-            {c.certUrl && (
-              <a
-                href={c.certUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="cert-view-btn"
-              >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                </svg>
-                View Certificate
+        
+        <div className="exp-right">
+          <div className="certs-list">
+            {CERTS.map(c => (
+              <a href={c.certUrl} target="_blank" rel="noreferrer" className="cert-card neu-out" key={c.name}>
+                <div className="cert-icon neu-in">
+                  {c.issuer === "Publication" ? "📄" : "🏆"}
+                </div>
+                <div>
+                  <div className="cert-name">{c.name}</div>
+                  <div className="cert-issuer">{c.issuer}</div>
+                </div>
               </a>
-            )}
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </main>
   );
@@ -519,48 +319,19 @@ function Experience() {
 function Projects() {
   return (
     <main className="page">
-      <div className="page-header">
-        <div className="section-tag">Projects</div>
-        <h2 className="page-title">Things I've Built</h2>
-        <p className="page-sub">End-to-end ML solutions, research platforms, and data tools.</p>
-      </div>
+      <h2 className="section-heading">Things I've Built</h2>
       <div className="projects-grid">
         {PROJECTS.map(p => (
-          <div className="project-card" key={p.title} style={{ "--pcolor": p.color }}>
-            <div className="project-header">
-              <div>
-                <div className="project-subtitle">{p.subtitle}</div>
-                <div className="project-title">{p.title}</div>
-              </div>
-              {p.badge && <span className="project-badge">{p.badge}</span>}
-            </div>
-            <p className="project-desc">{p.desc}</p>
+          <div className="project-card neu-out" key={p.title}>
+            {p.badge && <div className="project-badge">{p.badge}</div>}
+            <h3 className="project-title">{p.title}</h3>
+            <p className="project-desc">{p.subtitle}</p>
             <div className="project-tags">
-              {p.tags.map(t => <span className="tag" key={t}>{t}</span>)}
+              {p.tags.map(t => <span className="tag neu-out-sm" key={t}>{t}</span>)}
             </div>
             <div className="project-links">
-              {p.liveUrl && (
-                <a href={p.liveUrl} target="_blank" rel="noreferrer" className="project-link-btn project-link-live">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                    <polyline points="15 3 21 3 21 9"/>
-                    <line x1="10" y1="14" x2="21" y2="3"/>
-                  </svg>
-                  {p.liveLabel || "Live Demo"}
-                </a>
-              )}
-              {p.githubUrl && (
-                <a href={p.githubUrl} target="_blank" rel="noreferrer" className="project-link-btn project-link-github">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-                    <path d="M9 18c-4.51 2-5-2-7-2"/>
-                  </svg>
-                  GitHub
-                </a>
-              )}
-              {!p.liveUrl && !p.githubUrl && (
-                <span className="project-link-soon">Coming Soon</span>
-              )}
+              {p.liveUrl && <a href={p.liveUrl} target="_blank" rel="noreferrer" className="btn-sm neu-out">Live Demo</a>}
+              {p.githubUrl && <a href={p.githubUrl} target="_blank" rel="noreferrer" className="btn-sm neu-out">GitHub</a>}
             </div>
           </div>
         ))}
@@ -572,66 +343,21 @@ function Projects() {
 /* ─── CONTACT ─── */
 function Contact() {
   return (
-    <main className="page">
-      <div className="page-header">
-        <div className="section-tag">Contact</div>
-        <h2 className="page-title">Get In Touch</h2>
-        <p className="page-sub">Open to internships, research collaborations, and exciting AI/ML projects.</p>
-      </div>
-      <div className="contact-grid">
-        <div className="contact-card">
-          <h3 className="contact-card-title">Let's work together</h3>
-          <p className="contact-card-sub">Whether you have an opportunity or just want to talk tech — my inbox is always open.</p>
-          <div className="contact-links">
-            <a href="mailto:sahupooja43890@gmail.com" className="contact-link">
-              <div className="contact-link-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="2" y="4" width="20" height="16" rx="2"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-              </div>
-              <div>
-                <div className="cl-label">Email</div>
-                <div className="cl-val">sahupooja43890@gmail.com</div>
-              </div>
-            </a>
-            <a href="https://www.linkedin.com/in/pooja-sahu-54b5a7281/" target="_blank" rel="noreferrer" className="contact-link">
-              <div className="contact-link-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                  <rect x="2" y="9" width="4" height="12"/>
-                  <circle cx="4" cy="4" r="2"/>
-                </svg>
-              </div>
-              <div>
-                <div className="cl-label">LinkedIn</div>
-              </div>
-            </a>
-            <a href="https://github.com/Pooja0726" target="_blank" rel="noreferrer" className="contact-link">
-              <div className="contact-link-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-                  <path d="M9 18c-4.51 2-5-2-7-2"/>
-                </svg>
-              </div>
-              <div>
-                <div className="cl-label">GitHub</div>
-              </div>
-            </a>
-          </div>
+    <main className="page contact-page">
+      <div className="contact-banner neu-out">
+        <div>
+          <h2 className="contact-title">Get In Touch</h2>
+          <p className="contact-sub">Open to internships, research collaborations, and exciting AI/ML projects.</p>
         </div>
-        <div className="contact-cta-card">
-          <div className="cta-label">Ready to collaborate?</div>
-          <h3 className="cta-title">Let's build something great together</h3>
-          <p className="cta-sub">I'm currently looking for internship and research opportunities in AI/ML. Reach out and let's discuss how I can contribute to your team.</p>
-          <a
-            href="https://www.linkedin.com/in/pooja-sahu-54b5a7281/"
-            target="_blank"
-            rel="noreferrer"
-            className="btn-primary"
-            style={{ marginTop: "2rem", display: "inline-flex", textDecoration: "none" }}
-          >
-            Send a Message
+        <div className="contact-links">
+          <a href="mailto:sahupooja43890@gmail.com" className="contact-link neu-out">
+            <span className="icon">✉️</span> sahupooja43890@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/pooja-sahu-54b5a7281/" target="_blank" rel="noreferrer" className="contact-link neu-out">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="https://github.com/Pooja0726" target="_blank" rel="noreferrer" className="contact-link neu-out">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
           </a>
         </div>
       </div>
@@ -641,21 +367,32 @@ function Contact() {
 
 /* ─── APP ─── */
 export default function App() {
-  const [page, setPage] = useState("Home");
-  const pages = { Home, About, Skills, Experience, Projects, Contact };
-  const PageComponent = pages[page];
+  const [page, setPage] = useState("About"); // Default to About to match the image
+  const [chatOpen, setChatOpen] = useState(false);
+  
+  const pages = { 
+    Home: About, // Route Home to About for this UI
+    About, 
+    Skills, 
+    Experience, 
+    Projects, 
+    Contact 
+  };
+  
+  const PageComponent = pages[page] || About;
+  
   return (
     <>
-      <div className="blob b1"/>
-      <div className="blob b2"/>
-      <Nav page={page} setPage={setPage}/>
+      <div className="bg-shape shape1"></div>
+      <div className="bg-shape shape2"></div>
+      <div className="bg-shape shape3"></div>
+      <div className="app-container" style={{ position: 'relative', zIndex: 1 }}>
+      <Nav page={page} setPage={setPage} setChatOpen={setChatOpen} />
       <div className="page-wrap">
-        <PageComponent setPage={setPage}/>
+        <PageComponent setPage={setPage} />
       </div>
-      <footer className="footer">
-        <p>Designed & Built by <span>Pooja Sahu</span> · 2025</p>
-      </footer>
-      <AskPoojaBot/>
+      <AskPoojaBot open={chatOpen} setOpen={setChatOpen} />
+    </div>
     </>
   );
 }
