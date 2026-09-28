@@ -84,7 +84,12 @@ About Pooja Sahu:
 - Location: Bhopal, MP, India
 - Email: sahupooja43890@gmail.com
 Experience: AI/ML Intern at Amasqis.ai (Apr 2025 - Sep 2025)
-Skills: Python, Java, C++, SQL, JavaScript, TensorFlow, Keras, Django, Flutter, Streamlit, Pandas, NumPy, Scikit-learn, GCP.`;
+Skills: Python, Java, C++, SQL, JavaScript, TensorFlow, Keras, Django, Flutter, Streamlit, Pandas, NumPy, Scikit-learn, GCP.
+Projects:
+- ResearchMind AI: Full-stack AI research platform (React, FastAPI, RAG, LLaMA 3.3 70B)
+- Facial Expression Recognition: Hybrid emotion recognition model (VGG16 + SVM). Published in Springer proceedings.
+- Pace Time Planner: Full-stack daily planning app (Spring Boot, React, PostgreSQL)
+- Smart Enterprise System: AI-powered enterprise management system.`;
 
 /* ─── ASK POOJA BOT ─── */
 function AskPoojaBot({ open, setOpen }) {
