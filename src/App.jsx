@@ -340,7 +340,7 @@ function Projects() {
               {p.tags.map(t => <span className="tag neu-out-sm" key={t}>{t}</span>)}
             </div>
             <div className="project-links">
-              {p.liveUrl && <a href={p.liveUrl} target="_blank" rel="noreferrer" className="btn-sm neu-out">Live Demo</a>}
+              {p.liveUrl && <a href={p.liveUrl} target="_blank" rel="noreferrer" className="btn-sm neu-out">{p.liveLabel || "Live Demo"}</a>}
               {p.githubUrl && <a href={p.githubUrl} target="_blank" rel="noreferrer" className="btn-sm neu-out">GitHub</a>}
             </div>
           </div>
