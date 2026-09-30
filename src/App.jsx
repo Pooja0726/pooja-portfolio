@@ -294,7 +294,7 @@ function Experience() {
                 <div className="tl-role">Bachelor of Technology — Computer Science (AI-ML)</div>
                 <div className="tl-company">Vellore Institute of Technology, Bhopal</div>
                 <div className="tl-date">Sep 2023–Aug 2027</div>
-                <div className="tl-cgpa">CGPA: <strong>8.87</strong> / 10</div>
+                <div className="tl-cgpa">CGPA: <strong>8.93</strong> / 10</div>
               </div>
             </div>
           </div>
