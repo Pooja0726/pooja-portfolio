@@ -25,7 +25,7 @@ const PROJECTS = [
     tags: ["VGG16", "SVM", "TensorFlow", "Keras", "Streamlit"],
     liveUrl: "https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12",
     liveLabel: "View Publication",
-    githubUrl: null,
+    githubUrl: "https://github.com/Pooja0726/Facial-Expression-Model.git",
     badge: "Published at Springer — WCSC 2025"
   },
   {
@@ -37,12 +37,12 @@ const PROJECTS = [
     githubUrl: "https://github.com/Pooja0726/timeplanner-frontend",
   },
   {
-    title: "Smart Enterprise System",
-    subtitle: "AI-powered enterprise management system with intelligent automation, real-time analytics, and multi-module business process optimization.",
-    tags: ["Python", "Hugging Face", "AI", "REST API", "Enterprise"],
-    liveUrl: "https://pooja26-enterprisesystem.hf.space/",
+    title: "Smart Parking System",
+    subtitle: "AI-powered smart parking management system — ANPR entry, mis-park detection, tiered owner alerts, and authority command dashboard.",
+    tags: ["Next.js 15", "TypeScript", "Tailwind CSS", "OCR"],
+    liveUrl: "https://kumbh-park-ai.vercel.app/",
     liveLabel: "Live Demo",
-    githubUrl: null,
+    githubUrl: "https://github.com/Pooja0726/kumbh-park-ai.git",
   }
 ];
 
@@ -80,7 +80,7 @@ STRICT FORMATTING RULES:
 - Never use markdown tables, numbered lists with pipes, or headers like "# Title"
 - Keep answers short — 3 to 5 bullet points max.
 About Pooja Sahu:
-- B.Tech Computer Science (AI-ML) student at VIT Bhopal, CGPA 8.87/10
+- B.Tech Computer Science (AI-ML) student at VIT Bhopal, CGPA 8.93/10
 - Location: Bhopal, MP, India
 - Email: sahupooja43890@gmail.com
 Experience: AI/ML Intern at Amasqis.ai (Apr 2025 - Sep 2025)
@@ -89,7 +89,7 @@ Projects:
 - ResearchMind AI: Full-stack AI research platform (React, FastAPI, RAG, LLaMA 3.3 70B)
 - Facial Expression Recognition: Hybrid emotion recognition model (VGG16 + SVM). Published in Springer proceedings.
 - Pace Time Planner: Full-stack daily planning app (Spring Boot, React, PostgreSQL)
-- Smart Enterprise System: AI-powered enterprise management system.`;
+- Smart Parking System: AI-powered smart parking management system.`;
 
 /* ─── ASK POOJA BOT ─── */
 function AskPoojaBot({ open, setOpen }) {
@@ -216,7 +216,7 @@ function About({ setPage }) {
             <div className="info-row"><span>DEGREE</span><span>B.Tech CS (AI-ML)</span></div>
             <div className="info-row"><span>UNIVERSITY</span><span>VIT Bhopal</span></div>
             <div className="info-row"><span>BATCH</span><span>2023 - 2027</span></div>
-            <div className="info-row"><span>CGPA</span><span className="bold">8.87 / 10</span></div>
+            <div className="info-row"><span>CGPA</span><span className="bold">8.93 / 10</span></div>
             <div className="info-row"><span>EMAIL</span><span>sahupooja43890@gmail.com</span></div>
           </div>
         </div>
@@ -224,7 +224,7 @@ function About({ setPage }) {
           <h1 className="page-title">Who I Am</h1>
           <p className="page-sub">Passionate about building intelligent systems that create real impact.</p>
           <div className="about-text">
-            <p>I am a <strong>B.Tech Computer Science (AI-ML)</strong> student at Vellore Institute of Technology, Bhopal, maintaining a CGPA of <strong>8.87 / 10</strong>. I combine deep research curiosity with practical engineering to deliver end-to-end AI solutions.</p>
+            <p>I am a <strong>B.Tech Computer Science (AI-ML)</strong> student at Vellore Institute of Technology, Bhopal, maintaining a CGPA of <strong>8.93 / 10</strong>. I combine deep research curiosity with practical engineering to deliver end-to-end AI solutions.</p>
             <p>With <strong>1+ year of Python development</strong> experience, I have built hybrid ML models published at international conferences and full-stack research platforms deployed on Vercel and HuggingFace Spaces.</p>
             <p>I regularly solve algorithmic problems on <strong>LeetCode (100+ solved)</strong> and stay up to date with <strong>Generative AI</strong>, RAG architectures, and large language models.</p>
           </div>
