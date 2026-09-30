@@ -48,14 +48,19 @@ const PROJECTS = [
 
 const CERTS = [
   {
-    name: "Facial Expression Recognition using CNN and SVM",
-    issuer: "Publication",
-    certUrl: "https://link.springer.com/chapter/10.1007/978-981-95-0183-0_12",
+    name: "AWS Certified Cloud Practitioner",
+    issuer: "Certification",
+    certUrl: "/AWS-Certified-Cloud-Practitioner-certificate.pdf",
+  },
+  {
+    name: "Facial Expression Recognition (WCSC)",
+    issuer: "Certification",
+    certUrl: "/wcsc-cert.pdf",
   },
   {
     name: "Introduction to Data Analytics",
     issuer: "Certification",
-    certUrl: "/Introduction_to_Data_Analytics_Certificate.pdf",
+    certUrl: "/data-analytics-cert.pdf",
   },
   {
     name: "Google Generative AI Basic Intermediate & Advanced",
