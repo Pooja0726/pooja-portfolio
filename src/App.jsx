@@ -17,7 +17,7 @@ const PROJECTS = [
     tags: ["React", "FastAPI", "ChromaDB", "RAG", "LLaMA 3.3 70B", "Vercel"],
     liveUrl: "https://researchmind-five.vercel.app",
     liveLabel: "Live Demo",
-    githubUrl: null,
+    githubUrl: "https://github.com/Pooja0726/ResearchMind.git",
   },
   {
     title: "Facial Expression Recognition",
@@ -64,7 +64,7 @@ const CERTS = [
   },
   {
     name: "Google Generative AI Basic Intermediate & Advanced",
-    issuer: "Certification",
+    issuer: "Credly Badges",
     certUrl: "https://www.credly.com/users/pooja-sahu.22e83bbf",
   },
   {
